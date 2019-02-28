@@ -1,0 +1,462 @@
+@import "_fonts.sass"
+*
+    box-sizing: border-box
+.prev,.next
+    color: #ffffff
+.main
+    width: 1400px
+    margin: auto
+    background-color: #fffefc
+    &-social 
+        position: relative
+        left: 1100px
+        top: 110px
+        a 
+            text-decoration: none
+            margin-right: 18px
+    &-content   
+        width: 1260px
+        height: 660px        
+        margin: 86px auto 0 auto
+        display: flex
+        justify-content: space-evenly
+        &-img img
+            width: 504px
+            height: 600px
+            margin-left: 100px
+        &-all
+            font-family: 'Circe Light' 
+            &-title  
+               font-family: 'Code Light'
+               text-transform: uppercase
+               font-weight: 300
+               font-size: 110px
+               color: #010101
+               width: 495px
+               height: 209px
+               margin-top: 86px
+               margin-bottom: 80px
+            &-text 
+                width: 500px
+                height: 100px
+                margin-right: 100px
+            &-footer 
+                text-align: right
+                font-family: 'Marck Script'        
+                font-size: 24px
+                font-weight: 400
+                margin-right: 100px
+    &-nav
+        width: 1400px
+        height: 100px
+        background-color: #3b3b3b
+        color: #ffffff
+        font-family: 'Circe - Extra Light'
+        font-size: 18px
+        font-weight: normal
+        &-box
+            width: 1240px
+            height: 100px
+            margin: auto
+            display: flex
+            align-items: center
+            justify-content: space-evenly
+            a 
+                color: #ffffff
+                text-transform: none
+                text-decoration: none
+.facts
+    width: 1400px
+    height: 1240px
+    margin: auto
+    background-color: #fdfdfd
+    background: url('/Project_Eiffel/src/img/bg_2.png') no-repeat
+    background-position: 320px 345px
+    overflow: hidden
+    &-content
+        margin-top: 96px
+        img 
+            display: inline-block
+            float: left
+        section.tower_title 
+            display: inline-block
+            background-color: #d29c9c
+            color: #ffffff
+            width: 945px
+            height: 70px
+            text-align: center
+            padding: 10px
+            font-size: 34px
+            font-weight: 300
+            font-family: 'Roboto'
+        section.tower_name
+            display: inline-block
+            width: 520px
+            height: 75px 
+            margin: 60px 190px 40px 160px
+            font-family: "Circe Light"
+            font-size: 15px
+            font-weight: 400;
+        section.tower_name span 
+            font-style: italic   
+        section.tower_about
+            display: inline-block
+            margin-left: 160px
+            width: 785px
+            height: 132px
+            background-color: #eeebe7;
+            color: #2a2623
+            font-family: 'Circe'
+            font-size: 24px
+            font-weight: 30px
+            padding: 40px 110px 40px 40px
+            line-height: 30px
+            font-family: 'Circe Light'
+        section.tower_about span 
+            margin-left: 190px
+            font-style: italic
+            font-weight: 100
+        section.tower_content 
+            display: inline-block
+            width: 477px
+            height: 75px
+            font-family: "Circe Light"
+            font-size: 15px
+            font-weight: normal
+            margin-left: 160px
+            margin-top: 35px
+    &-content:after
+        display: block 
+        content: ''
+        clear: both
+    &-events 
+        width: 920px
+        height: 550px
+        background-color: #3b3b3b
+        h2
+            color: #fcfbfb
+            font-family: 'Roboto Thin', arial
+            font-size: 40px
+            font-weight: 400
+            text-align: center
+            margin-top: 0
+            padding-top: 70px
+            padding-bottom: 15px
+            border-bottom: 1px solid #7e5e71
+        ul 
+            color: #fffcfa
+            font-family: "Circe - Extra Light"
+            font-size: 16px
+            font-weight: 400
+            line-height: 30px
+            margin: 40px 130px
+            width: 68%
+            li 
+                margin-bottom: 30px
+        &-count 
+            opacity: 0.47
+            color: #fdfafc
+            font-family: "Circe - Extra Light"
+            font-size: 40px
+            font-weight: 400
+            line-height: 30px 
+            display: inline-block  
+            float: right
+            margin-right: 40px
+            margin-bottom: 30px
+.scam
+    width: 1400px
+    height: 755px
+    background-color: #fdfcfb
+    margin: auto
+    padding-top: 110px
+    &-title
+        width: 920px
+        height: 75px
+        background-color: #d29c9c
+        text-align: right
+        font-family: 'Roboto'
+        font-size: 36px
+        font-weight: 300
+        color: #fcfbfb
+        padding: 16px 80px 20px 0px
+    &-list
+        padding-top: 60px 
+        ul 
+            color: #271e18
+            font-family: "Circe Light"
+            font-size: 16px
+            font-weight: 400
+            line-height: 30px
+            width: 36%
+            margin: auto
+            li 
+                margin-bottom: 30px
+    &-tab 
+        width: 400px
+        height: 60px
+        background-color: #7e7067
+        color: #fdfbfb
+        font-family: 'Circe Light'
+        font-size: 24px
+        font-weight: 400
+        line-height: 30px
+        text-align: right
+        padding-right: 50px
+        padding-top: 15px
+        position: relative
+        bottom: 210px
+        opacity: .4
+        a
+            text-decoration: none
+            color: #fdfbfb
+            span 
+                border-bottom: 1px solid #fdfbfb
+                display: inline-block
+                line-height: .85
+    &-footer 
+        width: 1400px
+        height: 120px
+        background-color: #3b3b3b
+        text-align: center
+        padding-top: 30px
+        &-conteiner
+            width: 282px
+            height: 50px
+            border: 1px solid #fbfbfa
+            margin: auto
+            padding-top: 10px
+            a
+                border: none
+                background-color: #3b3b3b
+                color: #fbf9f7
+                text-transform: lowercase
+                font-family: "Roboto"
+                font-size: 18px
+                font-weight: 400
+                text-decoration: none
+    &-img
+        position: relative
+        img 
+            position: absolute
+            right: 80px
+            bottom: -66px
+.stages 
+    width: 1400px
+    height: 1000px
+    background-color: #fdfcfb
+    background: url('/Project_Eiffel/src/img/stages_bg.png') center
+    margin: 0px auto
+    &-tab_right 
+        width: 900px
+        height: 70px
+        background-color: #d29c9c
+        color: #fdfcfb
+        font-family: 'Roboto'
+        font-size: 36px
+        font-weight: 300
+        line-height: 30px
+        text-align: left
+        padding: 20px 0 10px 76px
+        position: relative
+        top: 100px
+        left: 500px
+    &-gallery
+        ul 
+            list-style: none
+            text-align: center
+            padding-top: 160px
+            li 
+                display: inline-block
+                margin-right: 85px
+                box-shadow: 0 3px 7px rgba(0, 0, 0, 0.47)
+                background-color: rgba(83, 52, 67, 0.29)
+                vertical-align: middle
+            .img_list_others
+                box-shadow: 0 3px 7px rgba(0, 0, 0, 0.47)
+                background-color: rgba(83, 52, 67, 0.3)
+                opacity: .5
+                position: relative
+                z-index: 1
+            .mask 
+                position: relative
+            .mask:before 
+                content: ''
+                position: absolute
+                top: 0
+                left: 0
+                right: 0
+                bottom: 0
+                background-color: rgba(0,0,0,0.5)  
+                z-index: 1
+        &-lightbox
+            display: none
+            position: fixed
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            text-align: center
+            section 
+                transform: translate(-1.2%,30%)
+            &-overlay 
+                position: absolute
+                z-index: -1 
+                top: 0
+                left: 0
+                width: 100%
+                height: 100% 
+                background: rgba(0,0,0,.8)
+                &-month 
+                    color: #ffffff
+                    font-family: 'Circe Light'
+                    font-size: 26px
+                    font-weight: 300
+            &-buttons:hover
+                cursor: pointer
+            &-buttons
+                color: #ffffff
+                font-family: 'Circe Light'
+                font-size: 26px
+                font-weight: 300
+                width: 200px
+                margin: auto
+    &-date 
+        width: 450px
+        height: 76px
+        background-color: #7e7067
+        opacity: 0.42
+        color: #fffefb
+        font-family: 'Circe Light'
+        font-size: 32px
+        font-weight: 700
+        line-height: 30px
+        text-align: right
+        padding: 24px 46px 24px 0px
+        margin-top: 80px
+        margin-bottom: 80px
+    &-blockcontent
+        width: 920px
+        height: 500px
+        background-color: #3b3b3b
+        margin: 0px auto 0px auto
+        h2
+            color: #fcfbfb
+            font-family: 'Roboto Thin', arial
+            font-size: 40px
+            font-weight: 400
+            text-align: center
+            margin-top: 0
+            padding-top: 70px
+            padding-bottom: 12px
+            border-bottom: 1px solid #7e5e71
+        ul 
+            color: #fffcfa
+            font-family: "Circe - Extra Light"
+            font-size: 16px
+            font-weight: 400
+            line-height: 30px
+            margin: 40px 130px
+            width: 68%
+            list-style: none
+            li 
+                margin-bottom: 30px
+.gallery
+    width: 1400px
+    height: 1176px
+    background-color: #fdfcfb
+    margin: 600px auto 0px auto
+    &-tab 
+        width: 920px
+        height: 75px
+        background-color: #d29c9c
+        text-align: right
+        font-family: 'Roboto'
+        font-size: 36px
+        font-weight: 300
+        color: #fcfbfb
+        padding: 16px 160px 20px 0px
+    &-text 
+        width: 430px
+        height: 80px
+        color: #373833
+        font-family: "Circe Light"
+        font-size: 15px
+        font-weight: 400
+        line-height: 30px
+        margin: 50px auto 0px auto
+        span
+            border-bottom: 1px solid #fdfbfb
+            display: inline-block
+            line-height: .85
+    &-img
+        margin-top: 40px
+        margin-left: 80px
+        &-gp1,&-gp2,&-gp3 
+            display: inline-block
+            vertical-align: top
+            img 
+                display: block
+        &-gp1
+            &-first,&-second,&-third,&-fourth,&-five,&-six
+                position: relative
+                transition: all .4s ease-in-out
+            &-first 
+                left: 81px
+                opacity: .6
+            &-second 
+                left: 4px
+                z-index: 2
+                opacity: .8
+            &-third 
+                left: 30px
+                bottom: 30px
+                z-index: 1
+                opacity: .3
+            &-fourth 
+                z-index: 2
+                opacity: .9
+            &-five
+                right: 4px
+                top: 200px
+                z-index: 2
+                opacity: .85
+            &-six 
+                right: 4px
+                z-index: 1
+                top: 120px
+                opacity: .4
+            &-first:hover,&-second:hover,&-third:hover,&-five:hover,&-six:hover
+                z-index: 999
+                opacity: 1
+                transform: scale(1.2)
+            &-fourth:hover
+                z-index: 999
+                opacity: 1
+                transform: scale(1.08)
+    &-social 
+        text-align: right
+        margin-right: 60px
+        position: relative
+        bottom: 70px
+        a 
+            text-decoration: none
+            margin-right: 20px
+.footer 
+    width: 1400px
+    height: 430px
+    background-color: #181716
+    margin: auto
+    &-text 
+        color: #fcfcfb
+        font-family: 'Code'
+        font-size: 64px
+        font-weight: 300
+        line-height: 42px
+        text-transform: uppercase
+        text-align: center
+        padding: 190px 296px
+                
+            
+        
+        

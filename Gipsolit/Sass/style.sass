@@ -1,0 +1,690 @@
+@import "_font.sass"
+    
+// Colors
+$btn-color: #F7AE01
+$icons: #00BF00
+$text: #1A1820
+$bg-light: #FCFCFC
+// text: font-family 
+$rg: 'ProximaNova_rg', sans-serif
+$bd: 'ProximaNova_bd', sans-serif
+
+// Basic Settings
+html
+    font-size: 10px
+body 
+    font-family: $rg
+a 
+    &:hover 
+        text-decoration: none 
+        opacity: .5
+    &:visited 
+        text-decoration: none
+        color: $text
+// Глобально убираем обводку и любое оформление текста у всех кнопок и инпутов
+button,input,a 
+    &:focus
+        outline: none
+        text-decoration: none
+.button
+    background-color: $btn-color
+    color: #fff
+    padding: 1rem 3rem
+    border-radius: 8px
+    text-transform: uppercase
+    border: none
+    font-size: 1.3rem
+    transition: all .2s
+    &:hover 
+        cursor: pointer
+        background-color: darken($btn-color,5%)
+.phone
+    &-block 
+        text-align: right
+    &-link
+        display: inline-block
+        font-family: $bd
+        font-size: 2rem
+        height: 7rem
+        line-height: 7rem
+        text-decoration: none
+        color: $text
+// Так как внутри формы все инпуты и лейблы офрмлены одинково выносим в отдельный класс
+.form
+    &-input 
+        display: block
+        border: 1px solid #ddd
+        border-radius: 5px
+        width: 100%
+        padding: 1.5rem
+        margin: 2rem 0
+    label 
+        background-color: #fff
+        padding: 0.5rem
+        position: absolute
+        left: 50%
+        transform: translateX(-50%) translateY(-50%)
+        font-size: 1.3rem
+        font-weight: 100
+        &-btn 
+            font-size: 1.5rem
+            width: 100%
+        
+.header 
+    height: 7rem
+.wrap
+    display: table
+    width: 100%
+    height: 7rem
+    &-block 
+        display: table-cell 
+        vertical-align: middle
+        text-align: right
+// Typography
+section 
+    padding: 10rem 0
+.section-header
+    &-light
+        color: #ffffff
+        margin-top: 0 
+    h2 
+        font-family: $bd 
+        font-size: 3.6rem
+        text-align: center
+    p 
+        font-size: 1.4rem
+        text-align: center
+    margin: 2rem 0 10rem
+    
+
+// первый экран - main
+.main 
+    padding: 2rem 0 5rem
+    background: #fff url('../img/main-bg.jpg') center top no-repeat 
+    background-size: cover
+    &-content 
+        margin-top: 10rem
+    // Главный заголовок
+    h1 
+        margin-top: 0
+        font-family: $bd 
+        text-transform: uppercase
+        line-height: 1.45
+        font-weight: 900
+        font-size: 4rem
+    // Описание под главным заголовком
+    &-description 
+        font-family: $rg 
+        font-size: 2.4rem
+        margin-top: 4rem
+    // Блок с ценой
+    span 
+       display: inline-block
+       background-color: $icons 
+       padding: 3rem 4rem
+       color: #fff
+       font-size: 1.8rem
+       text-align: center
+       margin-top: 3rem
+       strong 
+           font-size: 2.5rem 
+           font-family: $bd
+    // Описание триггера под блоком с ценой
+    &-trigger
+        display: block
+        margin-top: 3rem
+        font-family: $bd
+        font-size: 2.2rem
+        text-transform: uppercase
+    // Главная форма 
+    &-form 
+        font-family: $rg
+        background-color: #fff
+        padding: 4.5rem 5rem
+        text-align: center
+        h2 
+            font-size: 1.8rem
+            line-height: 1.4
+            margin-bottom: 4rem
+            strong 
+                font-size: 1.9rem
+        small   
+            display: inline-block
+            margin-top: 1.5rem
+
+// Офрмление 2 экрана Карусель 
+.header-features
+    text-align: center
+    font-family: $bd
+    font-size: 4rem
+    margin: 2rem 0 10rem
+.features 
+    &-block 
+        text-align: center
+        h3 
+           font-family: $bd 
+           font-size: 2rem
+           margin-bottom: 2.5rem
+        p 
+            display: inline-block
+            font-size: 1.4rem
+            width: 80%
+    &-img 
+        height: 8rem
+        margin-bottom: 3rem
+        img 
+            margin: 0 auto
+.slick-active 
+    outline: none
+.btn-features 
+    position: absolute
+    top: 50%
+    z-index: 99
+    transform: translateY(-50%)
+    width: 2rem
+    height: 2rem
+    border: none
+.prev 
+    left: 0
+    background: url('../img/features/arrow-left.svg') center no-repeat 
+    background-size: 100%
+.next 
+    right: 0
+    background: url('../img/features/arrow-right.svg') center no-repeat
+    background-size: 100%
+
+// Оформление высплывающего окна
+.surface
+    display: none
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    width: 100%
+    height: 100%
+    z-index: 10
+    background-color: rgba(0,0,0,0.5)
+    z-index: 9999
+    &-content
+        position: absolute 
+        left: 50%
+        top: 10%
+        transform: translateX(-50%)
+        background-color: #fff
+        padding: 4rem 4rem
+    &-header 
+        font-family: $bd
+        font-size: 2rem
+        margin-top: 0
+    p 
+        font-size: 1.5rem
+    textarea 
+        outline: none
+    &-close
+        position: absolute
+        top: -1.5rem
+        right: -3rem
+        border: none
+        color: #ffffff
+        width: 3rem 
+        text-align: center
+        background-color: transparent
+        font-size: 3rem
+    &-content 
+        text-align: center
+    &-form
+        margin-top: 3rem
+        padding: 0 1rem
+
+// Оформление 3 экрана с ценой        
+.prices 
+    background: $icons url('../img/prices/prices-bg.jpg') center
+    &-button  
+        text-align: right
+        button 
+            margin-top: 2.5rem
+    &-block 
+        background-color: #fff
+        box-shadow: 7px 12px 21px 0px rgba(0,0,0,0.17)
+        text-align: center
+        padding: 1rem 3rem 4rem
+        min-height: 50rem
+        img 
+            width: 100%
+            max-width: 30rem
+            display: inline-block
+            margin-bottom: 2rem
+        h4 
+          font-family: $bd 
+          font-size: 1.9rem
+          margin: 3rem 0rem
+        span
+            display: block
+            font-family: $bd
+            font-size: 1.9rem
+            margin-bottom: 2rem
+        ul 
+            min-height: 16rem
+            list-style: none
+            padding: 0
+            font-size: 1.6rem
+            line-height: 1.9
+            li:before 
+                content: ''
+                display: inline-block
+                width: 1.6rem
+                height: 1.6rem
+                background: url('../img/prices/yes.png') center no-repeat
+                background-size: 100%
+                vertical-align: middle
+                margin-right: 1rem
+// Оформление высплывающего окна
+.surface-prices 
+    .surface-content
+        top: 30%
+// 4 экран отзывы
+.feedback 
+    background: url('../img/feedback/feedback-bg.jpg') center no-repeat
+    background-size: cover
+    position: relative
+    .section-feedback-header 
+        font-family: $bd
+        text-align: center
+        font-size: 2rem
+    &-text 
+            font-family: $rg
+            font-style: italic
+            margin-top: 2rem
+            padding: 1rem
+            border: 2px solid $icons
+            position: relative
+            blockquote 
+                font-size: 1.6rem 
+                border: none
+                padding: 0
+                margin-bottom: 0
+            &:before 
+                content: ''
+                position: absolute
+                display: block
+                width: 2rem
+                height: 2rem
+                background-color: #ffffff
+                border: 2px solid $icons
+                border-bottom: none
+                border-top-right-radius: 20px
+                top: -1.9rem
+                left: 4rem      
+    &-slider
+        margin-top: 10rem
+        background-color: #ffffff
+        box-shadow: 6px 10px 18px 0px rgba(0, 0, 0, 0.11)
+        padding: 5rem 6rem
+        .media
+            margin-top: 3rem
+            font-size: 1.6rem
+            &-heading 
+                font-family: $bd
+                font-size: 1.8rem
+        p 
+            font-size: 1.6rem
+        &-btn 
+            position: absolute
+            z-index: 99
+            top: 50%
+            transform: translateY(-50%)
+            width: 4rem
+            height: 6rem
+            background-color: $icons
+            border: none
+            img 
+                width: 50%
+        &-next
+            right: -4rem
+        &-prev
+            left: -4rem
+    &-form
+        margin-top: 5rem
+        padding: 4rem 10rem
+        z-index: 99
+        // Чтобы внутри формы все выровнить по центру, прописываем внутри формы tac
+        text-align: center
+        &-header 
+            font-family: $bd
+            font-size: 2rem
+        label 
+            transform: translate(-50%,7px)
+        &-btn 
+           font-size: 1.8rem
+           padding: 2rem 8rem
+    .hand
+        position: absolute
+        bottom: 0
+        left: 0
+        z-index: 9
+
+// 5 экран схема работы
+.scheme
+    padding-bottom: 0
+    background: url('../img/scheme/hand.png') bottom -10rem right -15rem no-repeat 
+    background-size: 60rem
+    text-align: center
+    position: relative
+    .section-header
+        p 
+            font-family: $bd
+            font-size: 1.6rem
+    &-box
+        // можно каждому итему задать мин высоту,вместо того,чтобы задавать margin для row 
+        min-height: 30rem
+        &-item
+        h4 
+            font-family: $bd
+            font-size: 2rem
+
+// 6 экран все включено 
+.all-inclusive
+    background-color: #FCFCFC
+    .section-header-active
+        h2 
+            color: $icons
+    .media
+        min-height: 15rem
+        h4 
+            font-family: $bd
+            font-size: 1.6rem
+        p 
+            font-size: 1.1rem
+    .circle
+        display: inline-block
+        width: 100%
+        height: 100%
+        background-color: $icons
+        border-radius: 50%
+        color: #ffffff
+        font-family: $bd
+        &-border 
+            display: inline-block
+            border-radius: 50%
+            padding: 0.3rem
+            width: 5rem
+            height: 5rem
+            text-align: center
+            border: 2px solid $icons 
+            font-size: 2rem
+            // чтобы выровнить 1 элемент по центру 
+            // можно использовать lh 
+            line-height: 4rem 
+
+// 7 экран проблемы
+.problems
+    background-color: #ffffff
+    position: relative
+    h3 
+        font-family: $bd
+    &-block
+        padding: 2rem
+        min-height: 36rem
+        &-right 
+            border: 5px solid $icons
+            h3 
+                color: $icons
+                font-size: 2rem
+        &-left 
+             border: 5px solid #E8E8E8
+             h3 
+                 color: #999999
+                 font-size: 2rem
+        &-list
+            font-size: 1.4rem
+            list-style: none
+            padding-left: 0
+            padding-top: 2rem
+            li 
+                margin-bottom: 3rem
+                position: relative
+                padding-left: 3.5rem
+            &-left
+                li:before 
+                   content: ''
+                   width: 3rem
+                   height: 3rem
+                   background: url('../img/problems/cancel.png') no-repeat center
+                   position: absolute
+                   top: 50%
+                   left: 0
+                   transform: translateY(-50%)
+                //    Так как элемент строчно-блочный можно использовать вертикальное выравнивнивание
+            &-right 
+                li:before 
+                    content: ''
+                    width: 3rem
+                    height: 3rem
+                    background: url('../img/problems/checked.png') no-repeat center 
+                    position: absolute
+                    top: 50%
+                    left: 0
+                    transform: translateY(-50%)               
+    .woman 
+        position: absolute
+        bottom: 0
+        left: 50%
+        margin-left: -19rem
+        
+// Экран материалы
+.materials
+    background: url('../img/feedback/feedback-bg.jpg') no-repeat center
+    background-size: cover
+    a
+        text-decoration: underline
+        color: #60914A
+    &-header 
+        p
+            font-family: $bd
+            font-size: 1.8rem
+    &-slider
+        &-block
+            text-align: center
+            img 
+                margin: 0 auto
+    &-footer 
+        margin-top: 5rem
+        font-family: $bd
+        text-align: center
+        font-size: 1.8rem
+
+// Экран дополнительные услуги
+.work 
+    background: url('../img/work/bg-work.jfif') center no-repeat
+    background-size: cover
+    margin-top: -2rem
+    &-content 
+        h2 
+            font-family: $bd
+            font-size: 4rem
+            line-height: 1.4
+            margin-top: 0
+            margin-bottom: 5rem
+        &-description
+            font-size: 2.1rem
+            p 
+                margin-bottom: 5rem
+    &-form
+        background-color: #fff
+        padding: 4.5rem 5rem
+        text-align: center
+        h2 
+            font-size: 1.8rem
+            line-height: 1.4
+            margin-bottom: 4rem
+        button
+            width: 100%
+            padding: 2rem 3rem
+        small 
+            display: block
+            margin-top: 2rem
+// Дополнительные услуги
+.more 
+    background-color: #00610D
+    color: #ffffff
+    &-header 
+        p 
+            font-size: 1.8rem
+    &-block 
+        text-align: center
+        min-height: 30rem
+        img 
+            width: 100%
+            max-width: 30rem
+        h3 
+            font-size: 2rem
+            margin: 2rem 2rem
+// Экран контакты          
+.contacts
+    //вынести в отдельную переменную этот цвет
+    background-color: #FCFCFC
+    &-header
+        margin-top: 0
+        font-family: $bd
+    &-block 
+        a 
+            color: $text
+            border-bottom: 1px dotted $text
+    &-form 
+        textarea 
+            display: block
+            border: 1px solid #ddd
+            border-radius: 5px
+            width: 100%
+            padding: 1.5rem
+            margin: 2rem 0
+        &-btn 
+            width: 100%
+// Подвал
+footer
+    margin: 3rem 0
+    text-align: center
+    .block 
+        a 
+            color: $text
+            border-bottom: 1px dotted $text
+// Настройка media запросов       
+@media (max-width: 1199px)
+    .feedback
+        &-form 
+            padding: 3rem 5rem
+    .problems 
+        &-block 
+            min-height: 40rem
+    .work
+        background: url('../img/work/bg-work.jfif') 65% no-repeat
+        background-size: cover
+        &-content 
+            min-width: 40rem
+            h2 
+                margin-bottom: 5rem
+            &-description
+                font-size: 1.8rem
+                p 
+                    margin-bottom: 5rem
+    .more
+        &-block 
+            margin-bottom: 5rem
+
+@media (max-width: 991px)
+    .main 
+        background-position: top right
+        small.form-bottom-text 
+            display: block
+    .phone-block
+        text-align: center
+    .main-title 
+        text-align: center
+        padding-bottom: 5rem
+    .main-content 
+        margin-top: 3rem
+    .prices 
+        &-button 
+            text-align: center
+            padding: 2rem 0
+            button 
+                margin-top: 0
+        &-block 
+            margin-top: 2rem
+    .section-header
+        &-light 
+            margin-bottom: 0
+    .feedback 
+        &-slider
+            margin-top: 5rem
+        .fotorama 
+            margin-bottom: 3rem
+        .hand 
+            display: none
+    .all-inclusive
+        .media 
+            min-height: 10rem
+    .problems
+        &-block 
+            margin-bottom: 5rem
+        .woman 
+            display: none
+    .work 
+        background-position: top left
+        &-content 
+            text-align: center
+            h2 
+                min-width: 6rem
+            &-description 
+                p 
+                    min-width: 6rem
+                    font-size: 2rem
+    .contacts 
+        .contacts-form
+            margin-top: 3rem
+    footer
+        .block
+            margin-bottom: 3rem
+@media (max-width: 767px)
+    .main 
+        background-position: top left
+    .header 
+        text-align: center
+    .wrap-block 
+        text-align: center
+    .main-title 
+        h1 
+            font-size: 3rem
+    .feedback
+        label 
+            transform: translate(-50%,-50%)
+        &-form 
+            &-btn 
+                font-size: 1.5rem
+                padding: 2rem 4rem
+    .scheme 
+        background: none
+        .section-header
+            margin-bottom: 2rem
+        &-box 
+            min-height: 25rem
+    .all-inclusive 
+        padding: 5rem 0
+        .section-header-active
+            margin-bottom: 2rem
+        .media
+            h2 
+                font-size: 2.5rem
+            p 
+                font-size: 1.4rem
+    .problems
+        .section-header
+            margin-bottom: 2rem
+        &-block 
+            min-height: auto
+    
+        
+       
+
+
