@@ -147,5 +147,10 @@
   }
   .offer-title {
     font-size: 25px;
+    margin-left: 0px;
+    left: 30px;
+  }
+  .section-title-main:after {
+    display: none;
   }
 }
