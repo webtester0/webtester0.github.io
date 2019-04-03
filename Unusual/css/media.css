@@ -1,0 +1,151 @@
+@media screen and (max-width: 1920px) {
+
+}
+
+@media screen and (max-width: 1600px) {
+
+}
+
+@media screen and (max-width: 1368px) {
+.offer-title {
+    top: 20px;
+    left: 80px;
+}
+.offer-bg {
+  font-size: 200px;
+}
+
+.order {
+  margin-left: 160px;
+
+}
+
+.offer-btn {
+
+  margin-left: 240px;
+}
+
+.next {
+  font-size: 200px;
+  left: 75%;
+  width: 220px;
+}
+
+.brah {
+  display: none;
+}
+
+.services {
+  padding-top: 50px;
+}
+
+.container-services {
+  margin-top: 30px;
+  flex-direction: column;
+}
+  
+.services-item {
+  width: 100%;
+  margin-bottom: 60px;
+}
+.footer-up a {
+  font-size: 40px;
+  color: #0406c1;
+}
+
+}
+
+@media screen and (max-width: 960px) {
+  .next {
+    display: none;
+  }
+  .footer-content {
+    flex-direction: column;
+  }
+  .footer-item {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .offer-bg {
+    font-size: 100px;
+    position: relative;
+  }
+
+  .header {
+    height: auto;
+    padding-top: 50px;
+  }
+  .header .container {
+    height: auto;
+    padding-bottom: 150px;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  nav .logo {
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+  .hamburger {
+    position: relative;
+    top: auto;
+    left: auto;
+    float: none;
+    margin-top: 14px;
+  }
+  .offer {
+    position: relative;
+    left: auto;
+    top: auto;
+    padding-top: 300px;
+  }
+  .offer-title {
+    font-size: 35px;
+    width: auto;
+    margin-left: auto;
+  }
+  .order {
+    margin-left: 10px;
+    width: auto;
+  }
+  .offer-btn {
+    margin-left: 10px;
+  }
+  .offer-title:before {
+    display: none;
+  }
+  .services-index {
+    display: none;
+  }
+  .footer-content {
+    font-size: 20px;
+  }
+  .section-title-main {
+    margin-left: 0px;
+  }
+  .scroll {
+    padding-left: 30px;
+    padding-right: 0px;
+  }
+  .section-title-main {
+    margin-left: 30px;
+  }
+  .services {
+    padding-bottom: 40px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .section-title-main {
+    font-size: 60px;
+    margin-left: 15px;
+  }
+  .offer-title {
+    font-size: 20px;
+  }
+}

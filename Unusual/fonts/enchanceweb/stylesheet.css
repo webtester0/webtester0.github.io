@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'JaapokkisubtractRegular';
+    src: url('JaapokkisubtractRegular.woff2') format('woff2'),
+        url('JaapokkisubtractRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'JaapokkienchanceRegular';
+    src: url('JaapokkienchanceRegular.woff2') format('woff2'),
+        url('JaapokkienchanceRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
