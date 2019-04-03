@@ -34,7 +34,7 @@ div.scores {
 } 
 
 .snakeBody {
-  background: url(/body.jpg);
+  background: url(/img/body.jpg);
   background-size: contain;
   border-radius: 10%;
   -webkit-border-radius: 10%;
@@ -44,7 +44,7 @@ div.scores {
 }
 
 .snakeHead {
-  background: url(/head.png);
+  background: url(/img/head.png);
   background-size: cover;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -54,7 +54,7 @@ div.scores {
 }
 
 .mouseBody {
-  background: url(/mouse.jpg);
+  background: url(/img/mouse.jpg);
   background-size: contain;
   border-radius: 10%;
   -webkit-border-radius: 10%;
