@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <title>To-do List</title>
+</head>
+<body>
+  <header>
+    <div class="board-header">
+      <div class="board-title">To-Do-List</div>
+      <div class="current-date" id="date"></div>
+      <div class="count-need-to-do">need-to-do:</div>
+      <div class="count-in-progress">in-progress:</div> 
+      <div class="count-done">done:</div> 
+    </div>
+  </header>
+  <div class="main-container">
+      <div class="container need-to-do">
+          <div class="header">
+            <div class="clear">
+                <i class="fa fa-refresh" aria-hidden="true" id="refresh"></i>
+            </div>
+
+          </div>
+          <div class="content">
+            <ul id="list" class="droppable droppable-do">
+            </ul>
+            <div class="add-to-do">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              <input type="text" id="input" placeholder="Add what need to-do">
+            </div>
+          </div>
+      </div>
+      <div class="container in-progress">
+        <div class="header progress"></div>
+        <div class="content">
+          <ul id="list" class="droppable droppable-progress">
+
+          </ul>
+        </div>
+      </div>
+      <div class="container is-ready">
+        <div class="header done"></div>
+        <div class="content">
+          <ul id="list" class="droppable droppable-done">
+
+          </ul>
+        </div>
+      </div>
+  </div>
+
+  <!-- Test drag'n'drop -->
+  <!-- <div class="dragContainer">
+    <div id="block" class="draggable"></div>
+  </div>
+
+  <p>Элемент droppable :</p>
+
+  <div id="basket" class="droppable"></div> -->
+
+  <script src="js/script.js"></script>
+</body>
+</html>
