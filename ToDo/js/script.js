@@ -164,9 +164,7 @@ let DragManager = new function() {
     let target = e.target;
     let elem = target.closest('.draggable');
   
-    if(!target.classList.contains('draggable')) {
-      return;
-    }
+    if(!elem) return;
   
     dragObject.elem = elem;
     dragObject.downX = e.pageX;

@@ -153,6 +153,9 @@ ul {
     background-color: transparent;
     max-width:285px;
 }
+.item p.text:hover {
+  cursor: default;
+}
 .lineThrough{
     text-decoration: line-through;
     color : #ccc;
