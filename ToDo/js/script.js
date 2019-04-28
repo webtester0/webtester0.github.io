@@ -95,7 +95,10 @@ input.addEventListener('keyup', function(e){
   if(e.keyCode == 13) {
     const toDo = input.value;
 
-    if(toDo) {
+    if(!toDo || toDo.length >= 30) {
+      alert('Минимальная длина строки 1 символ, а максимальная 30');
+      return false;
+    } else {
       addToDo(toDo,id,false,false);
       
       LIST.push({
@@ -107,12 +110,10 @@ input.addEventListener('keyup', function(e){
       localStorage.setItem('TODO', JSON.stringify(LIST));
 
       id++;
-    }
-    
+    }    
     input.value = "";
   }
 });
-
 
 function completeToDo(elem) {
   elem.classList.toggle(CHECK);
