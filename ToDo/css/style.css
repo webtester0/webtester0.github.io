@@ -14,12 +14,12 @@ body {
   font-size: 20px;
   font-weight: 700;
   display: flex;
-  border: 2px solid red;
   min-height: 50px;
   margin-bottom: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #0f0a01 ;
 }
 
 .board-title {
@@ -27,7 +27,6 @@ body {
   height: 45px;
   text-align: center;
   line-height: 45px;
-  border:2px solid #6eb200;
 }
 
 .current-date {
@@ -35,7 +34,6 @@ body {
   height: 45px;
   text-align: center;
   line-height: 45px;
-  border:2px solid #6eb200;
 }
 
 .count-need-to-do {
@@ -43,7 +41,6 @@ body {
   line-height: 45px;
   width: 15%;
   height: 45px;
-  border:2px solid #6eb200;
 }
 
 .count-in-progress {
@@ -51,7 +48,6 @@ body {
   line-height: 45px;
   width: 15%;
   height: 45px;
-  border:2px solid #6eb200;
 }
 
 .count-done {
@@ -59,20 +55,17 @@ body {
   line-height: 45px;
   width: 15%;
   height: 45px;
-  border:2px solid #6eb200;
 }
 
 .main-container {
   display: flex;
   justify-content: space-between;
-  border: 2px solid green;
 }
 
 .container {
   width: 380px;
   margin: 20px auto 20px auto;
   padding: 10px;
-  border: 2px solid blue;
 }
 
 .header {
@@ -115,21 +108,13 @@ body {
   -o-transform: rotate(45deg);
 }
 
-/* #date {
-  color: #fff;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  font-size: 25px;
-} */
-
 .content {
   width: 380px;
   min-height: 400px;
   background-color: #fff;
 }
 
-#list {
+ul {
   min-height: 340px;
   padding: 0;
   margin: 0;
@@ -248,20 +233,29 @@ body {
   -o-border-radius: 10px 10px 0 0;
 }
 
-/* #block {
-  width: 40px;
-  height: 40px;
-  background-color: #fff000;
-  margin: 0 auto;
-  cursor: pointer;
+.in-drop-do {
+  background-color: #FA9D4A;
+  border-radius: 10px ;
+  -webkit-border-radius: 10px ;
+  -moz-border-radius: 10px ;
+  -ms-border-radius: 10px ;
+  -o-border-radius: 10px ;
 }
 
-#basket {
-  width: 100px;
-  height: 100px;
-  background-color: aqua;
+.in-drop-progress {
+  background-color: #FCEE21;
+  border-radius: 10px ;
+  -webkit-border-radius: 10px ;
+  -moz-border-radius: 10px ;
+  -ms-border-radius: 10px ;
+  -o-border-radius: 10px ;
 }
 
-.dragContainer {
-  height: 40px;
-} */
+.in-drop-done {
+  background-color: #16F148;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}

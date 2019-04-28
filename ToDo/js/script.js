@@ -1,5 +1,4 @@
 //Elements
-
 const list = document.getElementById('list');
 const date = document.getElementById('date');
 const input = document.getElementById('input');
@@ -8,12 +7,20 @@ const CHECK = "fa-check-circle";
 const UNCHECK = "fa-circle-thin";
 const LINE_THROUGH = "lineThrough";
 const DRAG = "draggable";
+const ul = document.getElementsByTagName('ul');
+const ulDo = document.getElementsByClassName('droppable-do')[0];
+const ulProgress = document.getElementsByClassName('droppable-progress')[0];
+const ulDone = document.getElementsByClassName('droppable-done')[0];
+
+let countNeedToDo = document.getElementsByClassName('count-need-to-do')[0];
+let countInProgress = document.getElementsByClassName('count-in-progress')[0];
+let countDone = document.getElementsByClassName('count-done')[0];
+
 
 const options = {weekday : "long", month:"short", day:"numeric"};
 let currentDate = new Date();
 
 date.innerHTML = currentDate.toLocaleDateString("en-US",options);
-
 
 let LIST = [], id = 0;
 
@@ -22,9 +29,17 @@ let data = localStorage.getItem('TODO');
 if (data) {
   LIST = JSON.parse(data);
   id = LIST.length;
-  LIST.forEach(function(item) {
-    addToDo(item.value, item.id, item.done, item.trash);
-  });
+
+  for (let i=0; i < LIST.length; i++) {
+
+    if(!LIST[i].dropId) {
+      addToDo(LIST[i].value, LIST[i].id, LIST[i].done, LIST[i].trash);
+    } else {
+      let ul = document.getElementsByClassName(LIST[i].dropId)[0];
+      addToDo(LIST[i].value, LIST[i].id, LIST[i].done, LIST[i].trash, ul);
+    }
+
+  }
 } else {
   LIST = [];
   id = 0;
@@ -37,9 +52,19 @@ refresh.addEventListener('click', function() {
   location.reload();
 });
 
-//add what to-do at list
+//function addToDo special for input
 
-function addToDo(toDo, id, done, trash) {
+function addToDo(toDo, id, done, trash, ul) {
+  let DROPCLASS;
+  ul = ul || list;
+  
+  if ( ul.classList[1] == 'droppable-do' ) {
+    DROPCLASS = 'in-drop-do';
+  } else if (ul.classList[1] == 'droppable-progress') {
+    DROPCLASS = 'in-drop-progress';
+  } else if (ul.classList[1] == 'droppable-done') {
+    DROPCLASS = 'in-drop-done';
+  }
 
   if(trash) {
     return;
@@ -48,16 +73,21 @@ function addToDo(toDo, id, done, trash) {
   const LINE = done ? LINE_THROUGH : "";
   const position = "beforeend";
   const text = `
-        <li class="item ${DRAG}">
+        <li class="item ${DRAG} ${DROPCLASS}">
         <i class="fa ${DONE} co" aria-hidden="true" job="complete" id=${id}></i>
-        <p class="text ${LINE}">${toDo}</p>
+        <p class="text ${LINE} onselectstart="return false" onmousedown="return false">${toDo}</p>
         <i class="fa fa-trash-o de" aria-hidden="true" job="delete" id=${id}></i>
         </li>
   `;
-  list.insertAdjacentHTML(position, text);
+
+  
+  ul.insertAdjacentHTML(position, text);
+  
+  countNeedToDo.innerHTML = 'need-to-do: ' + ulDo.children.length;
+  countInProgress.innerHTML = 'in-progress: '+ ulProgress.children.length;
+  countDone.innerHTML = 'done: ' + ulDone.children.length;
 
 }
-
 
 //add to-do with input and enter key
 
@@ -72,7 +102,7 @@ input.addEventListener('keyup', function(e){
         value: toDo,
         id: id,
         done: false,
-        trash: false
+        trash: false,
       });
       localStorage.setItem('TODO', JSON.stringify(LIST));
 
@@ -116,6 +146,10 @@ list.addEventListener('click', function(e) {
   localStorage.setItem('TODO', JSON.stringify(LIST));
 });
 
+
+/**
+ * DragManager - объект, который хранит информацию о переносе 
+ */
 let DragManager = new function() {
 
   let dragObject = {};
@@ -137,7 +171,12 @@ let DragManager = new function() {
     dragObject.elem = elem;
     dragObject.downX = e.pageX;
     dragObject.downY = e.pageY;
-  
+
+    //сохраним класс родителя elem в dragObject
+    let elemParentClassName = elem.parentNode.classList[1];
+
+    dragObject.elemParentClassName = elemParentClassName;
+    
     return false;
   }
 
@@ -156,7 +195,8 @@ let DragManager = new function() {
     //При первом движении мыши больше, чем на 3px создается avatar
     if( !dragObject.avatar ) {
   
-      dragObject.avatar = createAvatar(e);
+      dragObject.avatar = createAvatar(e)[0];
+      dragObject.parentClassName = createAvatar(e)[1];
       if( !dragObject.avatar) {
         dragObject = {};
         return;
@@ -164,7 +204,7 @@ let DragManager = new function() {
   
       dragObject.shiftX = dragObject.downX - getCoords(dragObject.elem).left;
       dragObject.shiftY = dragObject.downY - getCoords(dragObject.elem).top;
-  
+
       dragObject.avatar.style.position = 'absolute';
       dragObject.avatar.style.zIndex = 9999;
   
@@ -172,7 +212,7 @@ let DragManager = new function() {
     }
 
     self.onDragMove(dragObject.avatar);
-  
+    
     //Перенос при каждом движении мыши
     dragObject.avatar.style.left = e.pageX - dragObject.shiftX + 'px';
     dragObject.avatar.style.top = e.pageY - dragObject.shiftY + 'px';
@@ -193,11 +233,13 @@ let DragManager = new function() {
   function finishDrag(e) {
     let droppable = findDrop(e).drop;
     let className = findDrop(e).class;
+    //Для onDragCancel
+    let parentClassName = dragObject.parentClassName;
   
     if(droppable) {
       self.onDragEnd(dragObject.avatar, droppable, className);
     } else {
-      self.onDragCancel(dragObject.avatar, className);
+      self.onDragCancel(dragObject.avatar, parentClassName);
     }
   }
 
@@ -212,9 +254,11 @@ let DragManager = new function() {
       return null;
     } 
     
+
+    //Определяет цвет для onDragEnd
     if(elem.closest('.droppable') == null) {
       return {
-        drop: elem.closest('.droppable')
+        drop: null,
       } ;
     } else {
       let drop = elem.closest('.droppable');
@@ -239,7 +283,7 @@ let DragManager = new function() {
 
   function createAvatar(e) {
     let avatar = dragObject.elem;
-    //for position: absolute
+    let avatarParentClassName = dragObject.elemParentClassName;
     let  elemCoords = getCoords(dragObject.elem);
     
     let old = {
@@ -255,8 +299,6 @@ let DragManager = new function() {
       avatar.style.transition = 'all 1s ease';
 
       setTimeout(function() {
-        // avatar.style.backgroundColor = '#FCEE21';
-        // avatar.style.borderRadius = '10px';
         avatar.style.left = elemCoords.left + 'px';
         avatar.style.top = elemCoords.top + 'px';
       },50);
@@ -268,13 +310,11 @@ let DragManager = new function() {
         avatar.style.top = old.top + 'px';
         avatar.style.position = old.position;
         avatar.style.zIndex = old.zIndex;
-        // avatar.style.backgroundColor = '';
-        // avatar.style.borderRadius = '';
       },500);
 
     };
     
-    return avatar;
+    return [avatar, avatarParentClassName];
   }
 
   document.onmousedown = onMouseDown;
@@ -289,6 +329,7 @@ let DragManager = new function() {
     dragObj.style.position = 'relative';
     dragObj.style.zIndex = '';
 
+    //Стили для успешного переноса в drop
     if(className == 'droppable-do') {
       dragObj.style.backgroundColor = '#FA9D4A';
       dragObj.style.borderRadius = '10px';
@@ -299,16 +340,37 @@ let DragManager = new function() {
       dragObj.style.backgroundColor = '#16F148';
       dragObj.style.borderRadius = '10px';
     }
+
+    for (let i=0; i < ul.length; i++) {
+      let arrLi = ul[i].children;
+
+      for (let j=0; j < arrLi.length; j++) {
+
+        for (let k=0; k < LIST.length; k++) {
+
+          if(arrLi[j].innerText == LIST[k].value) {
+            LIST[k].dropId = ul[i].classList[1];
+          }
+        }
+      }
+    }
+    
+    localStorage.setItem('TODO', JSON.stringify(LIST));
+
+    countNeedToDo.innerHTML = 'need-to-do: ' + ulDo.children.length;
+    countInProgress.innerHTML = 'in-progress: '+ ulProgress.children.length;
+    countDone.innerHTML = 'done: ' + ulDone.children.length;
   };
 
-  this.onDragCancel = function(dragObj, className) {
-    if(className == 'droppable-do') {
+  this.onDragCancel = function(dragObj, parentClassName) {
+    //Для rollback берем класс у родителя и возвращаем его стили
+    if(parentClassName == 'droppable-do') {
       dragObj.style.backgroundColor = '#FA9D4A';
       dragObj.style.borderRadius = '10px';
-    } else if (className == 'droppable-progress') {
+    } else if (parentClassName == 'droppable-progress') {
       dragObj.style.backgroundColor = '#FCEE21';
       dragObj.style.borderRadius = '10px';  
-    } else if (className == 'droppable-done') {
+    } else if (parentClassName == 'droppable-done') {
       dragObj.style.backgroundColor = '#16F148';
       dragObj.style.borderRadius = '10px';
     }
@@ -316,8 +378,11 @@ let DragManager = new function() {
   };
 
   this.onDragMove = function(dragObj) {
-    dragObj.style.backgroundColor = '#FCEE21';
+
+    dragObj.style.backgroundColor = '#C9DFDE';
     dragObj.style.borderRadius = '10px';
+
+    dragObj.classList.remove('in-drop-do');
   };
 };
 
@@ -329,4 +394,10 @@ function getCoords(elem) {
     left: coords.left + pageXOffset
   };
 }
+
+countNeedToDo.innerHTML = 'need-to-do: ' + ulDo.children.length;
+countInProgress.innerHTML = 'in-progress: '+ ulProgress.children.length;
+countDone.innerHTML = 'done: ' + ulDone.children.length;
+
+
 
