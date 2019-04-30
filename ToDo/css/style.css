@@ -68,11 +68,10 @@ body {
   padding: 10px;
 }
 
-.header {
+.need-do {
   width: 380px;
   height: 200px;
-  background: url(../img/bg1.png);
-  background-size: 100% 100%;
+  background-color: #ffc0c2;
   border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   -moz-border-radius: 10px 10px 0 0;
@@ -223,8 +222,9 @@ ul {
 }
 
 .progress {
-  background: url(../img/in-progress.png);
-  background-size: 100% 100%;
+  width: 380px;
+  height: 200px;
+  background-color: #ffe084;
   border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   -moz-border-radius: 10px 10px 0 0;
@@ -233,13 +233,22 @@ ul {
 }
 
 .done {
-  background-color: #fff4e1;
-  /* background-size: 100% 100%; */
+  width: 380px;
+  height: 200px;
+  background-color: #a0f6d2;
   border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   -moz-border-radius: 10px 10px 0 0;
   -ms-border-radius: 10px 10px 0 0;
   -o-border-radius: 10px 10px 0 0;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+  padding-top: 50px;
 }
 
 .in-drop-do {
