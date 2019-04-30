@@ -95,10 +95,7 @@ input.addEventListener('keyup', function(e){
   if(e.keyCode == 13) {
     const toDo = input.value;
 
-    if(!toDo || toDo.length >= 30) {
-      alert('Минимальная длина строки 1 символ, а максимальная 30');
-      return false;
-    } else {
+    if(toDo) {
       addToDo(toDo,id,false,false);
       
       LIST.push({
@@ -110,10 +107,12 @@ input.addEventListener('keyup', function(e){
       localStorage.setItem('TODO', JSON.stringify(LIST));
 
       id++;
-    }    
+    }
+    
     input.value = "";
   }
 });
+
 
 function completeToDo(elem) {
   elem.classList.toggle(CHECK);
@@ -165,7 +164,9 @@ let DragManager = new function() {
     let target = e.target;
     let elem = target.closest('.draggable');
   
-    if(!elem) return;
+    if(!target.classList.contains('draggable')) {
+      return;
+    }
   
     dragObject.elem = elem;
     dragObject.downX = e.pageX;
@@ -330,13 +331,13 @@ let DragManager = new function() {
 
     //Стили для успешного переноса в drop
     if(className == 'droppable-do') {
-      dragObj.style.backgroundColor = '#FA9D4A';
+      dragObj.style.backgroundColor = '#4bcffa';
       dragObj.style.borderRadius = '10px';
     } else if (className == 'droppable-progress') {
-      dragObj.style.backgroundColor = '#FCEE21';
+      dragObj.style.backgroundColor = '#ffd32a';
       dragObj.style.borderRadius = '10px';  
     } else if (className == 'droppable-done') {
-      dragObj.style.backgroundColor = '#16F148';
+      dragObj.style.backgroundColor = '#0be881';
       dragObj.style.borderRadius = '10px';
     }
 
@@ -364,13 +365,13 @@ let DragManager = new function() {
   this.onDragCancel = function(dragObj, parentClassName) {
     //Для rollback берем класс у родителя и возвращаем его стили
     if(parentClassName == 'droppable-do') {
-      dragObj.style.backgroundColor = '#FA9D4A';
+      dragObj.style.backgroundColor = '#4bcffa';
       dragObj.style.borderRadius = '10px';
     } else if (parentClassName == 'droppable-progress') {
-      dragObj.style.backgroundColor = '#FCEE21';
+      dragObj.style.backgroundColor = '#ffd32a';
       dragObj.style.borderRadius = '10px';  
     } else if (parentClassName == 'droppable-done') {
-      dragObj.style.backgroundColor = '#16F148';
+      dragObj.style.backgroundColor = '#0be881';
       dragObj.style.borderRadius = '10px';
     }
     dragObj.rollback();
@@ -378,7 +379,7 @@ let DragManager = new function() {
 
   this.onDragMove = function(dragObj) {
 
-    dragObj.style.backgroundColor = '#C9DFDE';
+    dragObj.style.backgroundColor = '#eb3b5a';
     dragObj.style.borderRadius = '10px';
 
     dragObj.classList.remove('in-drop-do');
