@@ -343,16 +343,22 @@ let DragManager = new function() {
     if(className == 'droppable-do') {
       dragObj.style.backgroundColor = '#4bcffa';
       dragObj.style.borderRadius = '10px';
+      dragObj.children[0].classList.remove("fa-circle-thin");
       dragObj.children[0].classList.remove("fa-check-circle");
+      dragObj.children[0].classList.remove("fa-spinner");
       dragObj.children[0].classList.add("fa-minus-circle");
     } else if (className == 'droppable-progress') {
       dragObj.style.backgroundColor = '#ffd32a';
       dragObj.style.borderRadius = '10px'; 
       dragObj.children[0].classList.remove("fa-circle-thin");
+      dragObj.children[0].classList.remove("fa-check-circle");
+      dragObj.children[0].classList.remove("fa-spinner");
       dragObj.children[0].classList.add("fa-spinner");
     } else if (className == 'droppable-done') {
       dragObj.style.backgroundColor = '#0be881';
       dragObj.style.borderRadius = '10px';
+      dragObj.children[0].classList.remove("fa-circle-thin");
+      dragObj.children[0].classList.remove("fa-check-circle");
       dragObj.children[0].classList.remove("fa-spinner");
       dragObj.children[0].classList.add("fa-circle-thin");
     }

@@ -144,6 +144,7 @@ ul {
     font-size: 25px;
     left:15px;
     top:10px;
+    color: #fff;
 }
 .item i.co:hover{
     cursor: pointer;
