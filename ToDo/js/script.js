@@ -341,7 +341,7 @@ let DragManager = new function() {
 
     //Стили для успешного переноса в drop
     if(className == 'droppable-do') {
-      dragObj.style.backgroundColor = '#4bcffa';
+      dragObj.style.backgroundColor = '#fc5185';
       dragObj.style.borderRadius = '10px';
       dragObj.children[0].classList.remove("fa-circle-thin");
       dragObj.children[0].classList.remove("fa-check-circle");
@@ -352,12 +352,12 @@ let DragManager = new function() {
       dragObj.style.borderRadius = '10px'; 
       dragObj.children[0].classList.remove("fa-circle-thin");
       dragObj.children[0].classList.remove("fa-check-circle");
-      dragObj.children[0].classList.remove("fa-spinner");
+      dragObj.children[0].classList.remove("fa-minus-circle");
       dragObj.children[0].classList.add("fa-spinner");
     } else if (className == 'droppable-done') {
       dragObj.style.backgroundColor = '#0be881';
       dragObj.style.borderRadius = '10px';
-      dragObj.children[0].classList.remove("fa-circle-thin");
+      dragObj.children[0].classList.remove("fa-minus-circle");
       dragObj.children[0].classList.remove("fa-check-circle");
       dragObj.children[0].classList.remove("fa-spinner");
       dragObj.children[0].classList.add("fa-circle-thin");
@@ -387,7 +387,7 @@ let DragManager = new function() {
   this.onDragCancel = function(dragObj, parentClassName) {
     //Для rollback берем класс у родителя и возвращаем его стили
     if(parentClassName == 'droppable-do') {
-      dragObj.style.backgroundColor = '#4bcffa';
+      dragObj.style.backgroundColor = '#fc5185';
       dragObj.style.borderRadius = '10px';
     } else if (parentClassName == 'droppable-progress') {
       dragObj.style.backgroundColor = '#ffd32a';
