@@ -5,6 +5,7 @@ const input = document.getElementById('input');
 const refresh = document.getElementById('refresh');
 const CHECK = "fa-check-circle";
 const UNCHECK = "fa-circle-thin";
+const SPINNER = "fa-spinner";
 const LINE_THROUGH = "lineThrough";
 const DRAG = "draggable";
 const ul = document.getElementsByTagName('ul');
@@ -56,21 +57,25 @@ refresh.addEventListener('click', function() {
 
 function addToDo(toDo, id, done, trash, ul) {
   let DROPCLASS;
+  let DONE,LINE;
   ul = ul || list;
   
   if ( ul.classList[1] == 'droppable-do' ) {
     DROPCLASS = 'in-drop-do';
+    DONE = "fa-minus-circle";
   } else if (ul.classList[1] == 'droppable-progress') {
     DROPCLASS = 'in-drop-progress';
+    DONE = "fa-spinner";
   } else if (ul.classList[1] == 'droppable-done') {
     DROPCLASS = 'in-drop-done';
+    DONE = done ? CHECK : UNCHECK;
+    LINE = done ? LINE_THROUGH : "";
   }
 
   if(trash) {
     return;
   }
-  const DONE = done ? CHECK : UNCHECK;
-  const LINE = done ? LINE_THROUGH : "";
+ 
   const position = "beforeend";
   const text = `
         <li class="item ${DRAG} ${DROPCLASS}">
@@ -95,7 +100,11 @@ input.addEventListener('keyup', function(e){
   if(e.keyCode == 13) {
     const toDo = input.value;
 
-    if(toDo) {
+    if(!toDo || toDo.length > 30) {
+      alert('Строка не должна быть пустой или превышать 30 символов!');
+      input.value = "";
+      return;
+    } else {
       addToDo(toDo,id,false,false);
       
       LIST.push({
@@ -108,7 +117,6 @@ input.addEventListener('keyup', function(e){
 
       id++;
     }
-    
     input.value = "";
   }
 });
@@ -130,21 +138,25 @@ function deleteToDo(elem) {
 
 }
 
-list.addEventListener('click', function(e) {
-  const target = e.target;
-
-  if(!target.attributes.job) {
-    return;
-  }
-
-  if(target.attributes.job.value == 'complete') {
-    completeToDo(target);
-  } else if (target.attributes.job.value == 'delete') {
-    deleteToDo(target);
-  }
-
-  localStorage.setItem('TODO', JSON.stringify(LIST));
-});
+for (let i=0; i < ul.length; i++) {
+  if(ul[i].classList.contains('droppable-done')) {
+    ul[i].addEventListener('click', function(e) {
+      const target = e.target;
+    
+      if(!target.attributes.job) {
+        return;
+      }
+    
+      if(target.attributes.job.value == 'complete') {
+        completeToDo(target);
+      } else if (target.attributes.job.value == 'delete') {
+        deleteToDo(target);
+      }
+    
+      localStorage.setItem('TODO', JSON.stringify(LIST));
+    });
+  } 
+}
 
 
 /**
@@ -331,12 +343,18 @@ let DragManager = new function() {
     if(className == 'droppable-do') {
       dragObj.style.backgroundColor = '#4bcffa';
       dragObj.style.borderRadius = '10px';
+      dragObj.children[0].classList.remove("fa-check-circle");
+      dragObj.children[0].classList.add("fa-minus-circle");
     } else if (className == 'droppable-progress') {
       dragObj.style.backgroundColor = '#ffd32a';
-      dragObj.style.borderRadius = '10px';  
+      dragObj.style.borderRadius = '10px'; 
+      dragObj.children[0].classList.remove("fa-circle-thin");
+      dragObj.children[0].classList.add("fa-spinner");
     } else if (className == 'droppable-done') {
       dragObj.style.backgroundColor = '#0be881';
       dragObj.style.borderRadius = '10px';
+      dragObj.children[0].classList.remove("fa-spinner");
+      dragObj.children[0].classList.add("fa-circle-thin");
     }
 
     for (let i=0; i < ul.length; i++) {
