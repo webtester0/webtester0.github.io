@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 html {
   height: 100%;
 }
@@ -72,6 +75,7 @@ body {
   width: 380px;
   height: 200px;
   background-color: #ffc0c2;
+  position: relative;
   border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   -moz-border-radius: 10px 10px 0 0;
@@ -119,6 +123,7 @@ ul {
   margin: 0;
   background-color: #feffe4;
   color: #383838;
+  position: relative;
 }
 
 .droppable-progress {
@@ -184,11 +189,9 @@ ul {
 
 .add-to-do{
   position: relative;
-  width: 360px;
-  height:40px;
+  height: 60px;
   background-color: #f6f6f6;
   padding: 10px;
-  border-top: 1px solid rgba(0,0,0,0.1);
 }
 .add-to-do i{
   position: absolute;
@@ -231,6 +234,7 @@ ul {
   width: 380px;
   height: 200px;
   background-color: #ffe084;
+  position: relative;
   border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   -moz-border-radius: 10px 10px 0 0;
@@ -242,6 +246,7 @@ ul {
   width: 380px;
   height: 200px;
   background-color: #a0f6d2;
+  position: relative;
   border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   -moz-border-radius: 10px 10px 0 0;
@@ -253,8 +258,12 @@ img {
   width: 100px;
   height: 100px;
   display: block;
-  margin: 0 auto;
-  padding-top: 50px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .in-drop-do {
