@@ -155,7 +155,21 @@ for (let i=0; i < ul.length; i++) {
     
       localStorage.setItem('TODO', JSON.stringify(LIST));
     });
-  } 
+  } else {
+    ul[i].addEventListener('click', function(e) {
+      const target = e.target;
+    
+      if(!target.attributes.job) {
+        return;
+      }
+
+      if (target.attributes.job.value == 'delete') {
+        deleteToDo(target);
+      } else {
+        return;
+      }
+      localStorage.setItem('TODO', JSON.stringify(LIST));
+  })}
 }
 
 
@@ -357,7 +371,7 @@ let DragManager = new function() {
     } else if (className == 'droppable-done') {
       dragObj.style.backgroundColor = '#0be881';
       dragObj.style.borderRadius = '10px';
-      dragObj.children[0].classList.remove("fa-minus-circle");
+      dragObj.children[0].classList.remove("fa-circle-thin");
       dragObj.children[0].classList.remove("fa-check-circle");
       dragObj.children[0].classList.remove("fa-spinner");
       dragObj.children[0].classList.add("fa-circle-thin");

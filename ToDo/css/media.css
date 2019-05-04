@@ -1,0 +1,203 @@
+@media screen and (max-width: 1920px) {
+
+}
+
+@media screen and (max-width: 1600px) {
+  
+}
+
+@media screen and (max-width: 1368px) {
+
+  .container {
+    width: 300px;
+  }
+
+  .need-do {
+    width: 300px;
+  }
+
+  .progress {
+    width: 300px;
+  }
+
+  .done { 
+    width: 300px;
+  }
+
+  .content {
+    width: 300px;
+  }
+
+  .item {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+
+  .board-header {
+    font-size: 17px;
+  }
+
+  .container {
+    width: 220px;
+  }
+
+  .need-do {
+    width: 220px;
+  }
+
+  .progress {
+    width: 220px;
+  }
+
+  .done { 
+    width: 220px;
+  }
+
+  .content {
+    width: 220px;
+    min-height: 300px;
+  }
+
+  .item {
+    width: 220px;
+  }
+
+  ul {
+    min-height: 240px;
+  }
+
+  .droppable-progress {
+    min-height: 300px;
+  }
+  
+  .droppable-done {
+    min-height: 300px;
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+  }
+  .add-to-do input{
+    font-size: 16px;
+    left: 30px;
+    height: 30px;
+    width: 180px;
+  }
+  .add-to-do input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size: 16px;
+  }
+  .add-to-do input::-moz-placeholder { /* Firefox 19+ */
+    font-size: 16px;
+  }
+  .add-to-do input:-ms-input-placeholder { /* IE 10+ */
+    font-size: 16px;
+  }
+  .add-to-do input:-moz-placeholder { /* Firefox 18- */
+    font-size: 16px;
+  }
+
+  .add-to-do i{
+    font-size: 30px;
+  }
+
+  .item p.text {
+    font-size: 18px;
+    top: 12px;
+  }
+} 
+
+@media screen and (max-width: 768px) {
+
+  .board-header {
+    font-size: 16px;
+    min-height: 0;
+  }
+
+  .container {
+    width: 200px;
+  }
+
+  .need-do {
+    width: 200px;
+  }
+
+  .progress {
+    width: 200px;
+  }
+
+  .done { 
+    width: 200px;
+  }
+
+  .content {
+    width: 200px;
+    min-height: 300px;
+  }
+
+  .item {
+    width: 200px;
+  }
+
+  ul {
+    min-height: 240px;
+  }
+
+  .droppable-progress {
+    min-height: 300px;
+  }
+  
+  .droppable-done {
+    min-height: 300px;
+  }
+
+  img {
+    width: 70px;
+    height: 70px;
+  }
+  .add-to-do input{
+    font-size: 14px;
+    left: 40px;
+    height: 30px;
+    width: 160px;
+  }
+  .add-to-do input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size: 16px;
+  }
+  .add-to-do input::-moz-placeholder { /* Firefox 19+ */
+    font-size: 16px;
+  }
+  .add-to-do input:-ms-input-placeholder { /* IE 10+ */
+    font-size: 16px;
+  }
+  .add-to-do input:-moz-placeholder { /* Firefox 18- */
+    font-size: 16px;
+  }
+
+  .add-to-do i{
+    font-size: 30px;
+  }
+
+  .item p.text {
+    font-size: 16px
+  }
+}
+
+@media screen and (max-width: 480px) {
+  
+  .main-container {
+    overflow-y: scroll;
+  }
+
+  .container {
+    margin-right: 50px;
+  }
+
+  .item p.text {
+    font-size: 14px;
+    top: 15px;
+  }
+
+}
