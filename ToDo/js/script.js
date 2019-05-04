@@ -88,10 +88,13 @@ function addToDo(toDo, id, done, trash, ul) {
   
   ul.insertAdjacentHTML(position, text);
   
+  countTasks();
+}
+
+function countTasks() {
   countNeedToDo.innerHTML = 'need-to-do: ' + ulDo.children.length;
   countInProgress.innerHTML = 'in-progress: '+ ulProgress.children.length;
   countDone.innerHTML = 'done: ' + ulDone.children.length;
-
 }
 
 //add to-do with input and enter key
@@ -151,6 +154,7 @@ for (let i=0; i < ul.length; i++) {
         completeToDo(target);
       } else if (target.attributes.job.value == 'delete') {
         deleteToDo(target);
+        countTasks();
       }
     
       localStorage.setItem('TODO', JSON.stringify(LIST));
@@ -165,6 +169,7 @@ for (let i=0; i < ul.length; i++) {
 
       if (target.attributes.job.value == 'delete') {
         deleteToDo(target);
+        countTasks();
       } else {
         return;
       }
@@ -393,9 +398,7 @@ let DragManager = new function() {
     
     localStorage.setItem('TODO', JSON.stringify(LIST));
 
-    countNeedToDo.innerHTML = 'need-to-do: ' + ulDo.children.length;
-    countInProgress.innerHTML = 'in-progress: '+ ulProgress.children.length;
-    countDone.innerHTML = 'done: ' + ulDone.children.length;
+    countTasks();
   };
 
   this.onDragCancel = function(dragObj, parentClassName) {
@@ -431,9 +434,7 @@ function getCoords(elem) {
   };
 }
 
-countNeedToDo.innerHTML = 'need-to-do: ' + ulDo.children.length;
-countInProgress.innerHTML = 'in-progress: '+ ulProgress.children.length;
-countDone.innerHTML = 'done: ' + ulDone.children.length;
+countTasks();
 
 
 
