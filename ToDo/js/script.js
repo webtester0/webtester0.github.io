@@ -20,8 +20,26 @@ let countDone = document.getElementsByClassName('count-done')[0];
 
 const options = {weekday : "long", month:"short", day:"numeric"};
 let currentDate = new Date();
+let newOptions = {month:"short", day:"numeric"};
 
-date.innerHTML = currentDate.toLocaleDateString("en-US",options);
+if (window.screen.width > 768) {
+  date.innerHTML = currentDate.toLocaleDateString("en-US",options);
+}
+
+if (window.screen.width < 768 && window.screen.width > 480) {
+  date.innerHTML = currentDate.toLocaleDateString("en-US",newOptions);
+  countNeedToDo.innerHTML = 'Need: ' + ulDo.children.length;
+  countInProgress.innerHTML = 'Progress: '+ ulProgress.children.length;
+  countDone.innerHTML = 'Done: ' + ulDone.children.length;
+}
+
+if (window.screen.width < 480) {
+  date.innerHTML = currentDate.toLocaleDateString("en-US",newOptions);
+  countNeedToDo.innerHTML = 'Need: ' + ulDo.children.length;
+  countInProgress.innerHTML = 'Progress: '+ ulProgress.children.length;
+  countDone.innerHTML = 'Done: ' + ulDone.children.length;
+}
+
 
 let LIST = [], id = 0;
 
@@ -88,14 +106,28 @@ function addToDo(toDo, id, done, trash, ul) {
   
   ul.insertAdjacentHTML(position, text);
   
-  countTasks();
+  if (window.screen.width > 768) {
+    date.innerHTML = currentDate.toLocaleDateString("en-US",options);
+    countNeedToDo.innerHTML = 'Need-to-do: ' + ulDo.children.length;
+    countInProgress.innerHTML = 'In-progress: '+ ulProgress.children.length;
+    countDone.innerHTML = 'Done: ' + ulDone.children.length;
+  }
+  
+  if (window.screen.width < 768 && window.screen.width > 480) {
+    date.innerHTML = currentDate.toLocaleDateString("en-US",newOptions);
+    countNeedToDo.innerHTML = 'Need: ' + ulDo.children.length;
+    countInProgress.innerHTML = 'Progress: '+ ulProgress.children.length;
+    countDone.innerHTML = 'Done: ' + ulDone.children.length;
+  }
+  
+  if (window.screen.width < 480) {
+    date.innerHTML = currentDate.toLocaleDateString("en-US",newOptions);
+    countNeedToDo.innerHTML = 'Need: ' + ulDo.children.length;
+    countInProgress.innerHTML = 'Progress: '+ ulProgress.children.length;
+    countDone.innerHTML = 'Done: ' + ulDone.children.length;
+  }
 }
 
-function countTasks() {
-  countNeedToDo.innerHTML = 'need-to-do: ' + ulDo.children.length;
-  countInProgress.innerHTML = 'in-progress: '+ ulProgress.children.length;
-  countDone.innerHTML = 'done: ' + ulDone.children.length;
-}
 
 //add to-do with input and enter key
 
@@ -154,7 +186,26 @@ for (let i=0; i < ul.length; i++) {
         completeToDo(target);
       } else if (target.attributes.job.value == 'delete') {
         deleteToDo(target);
-        countTasks();
+        if (window.screen.width > 768) {
+          date.innerHTML = currentDate.toLocaleDateString("en-US",options);
+          countNeedToDo.innerHTML = 'Need-to-do: ' + ulDo.children.length;
+          countInProgress.innerHTML = 'In-progress: '+ ulProgress.children.length;
+          countDone.innerHTML = 'Done: ' + ulDone.children.length;
+        }
+        
+        if (window.screen.width < 768 && window.screen.width > 480) {
+          date.innerHTML = currentDate.toLocaleDateString("en-US",newOptions);
+          countNeedToDo.innerHTML = 'Need: ' + ulDo.children.length;
+          countInProgress.innerHTML = 'Progress: '+ ulProgress.children.length;
+          countDone.innerHTML = 'Done: ' + ulDone.children.length;
+        }
+        
+        if (window.screen.width < 480) {
+          date.innerHTML = currentDate.toLocaleDateString("en-US",newOptions);
+          countNeedToDo.innerHTML = 'Need: ' + ulDo.children.length;
+          countInProgress.innerHTML = 'Progress: '+ ulProgress.children.length;
+          countDone.innerHTML = 'Done: ' + ulDone.children.length;
+        }
       }
     
       localStorage.setItem('TODO', JSON.stringify(LIST));
@@ -169,7 +220,26 @@ for (let i=0; i < ul.length; i++) {
 
       if (target.attributes.job.value == 'delete') {
         deleteToDo(target);
-        countTasks();
+        if (window.screen.width > 768) {
+          date.innerHTML = currentDate.toLocaleDateString("en-US",options);
+          countNeedToDo.innerHTML = 'Need-to-do: ' + ulDo.children.length;
+          countInProgress.innerHTML = 'In-progress: '+ ulProgress.children.length;
+          countDone.innerHTML = 'Done: ' + ulDone.children.length;
+        }
+        
+        if (window.screen.width < 768 && window.screen.width > 480) {
+          date.innerHTML = currentDate.toLocaleDateString("en-US",newOptions);
+          countNeedToDo.innerHTML = 'Need: ' + ulDo.children.length;
+          countInProgress.innerHTML = 'Progress: '+ ulProgress.children.length;
+          countDone.innerHTML = 'Done: ' + ulDone.children.length;
+        }
+        
+        if (window.screen.width < 480) {
+          date.innerHTML = currentDate.toLocaleDateString("en-US",newOptions);
+          countNeedToDo.innerHTML = 'Need: ' + ulDo.children.length;
+          countInProgress.innerHTML = 'Progress: '+ ulProgress.children.length;
+          countDone.innerHTML = 'Done: ' + ulDone.children.length;
+        }
       } else {
         return;
       }
@@ -398,7 +468,26 @@ let DragManager = new function() {
     
     localStorage.setItem('TODO', JSON.stringify(LIST));
 
-    countTasks();
+    if (window.screen.width > 768) {
+      date.innerHTML = currentDate.toLocaleDateString("en-US",options);
+      countNeedToDo.innerHTML = 'Need-to-do: ' + ulDo.children.length;
+      countInProgress.innerHTML = 'In-progress: '+ ulProgress.children.length;
+      countDone.innerHTML = 'Done: ' + ulDone.children.length;
+    }
+    
+    if (window.screen.width < 768 && window.screen.width > 480) {
+      date.innerHTML = currentDate.toLocaleDateString("en-US",newOptions);
+      countNeedToDo.innerHTML = 'Need: ' + ulDo.children.length;
+      countInProgress.innerHTML = 'Progress: '+ ulProgress.children.length;
+      countDone.innerHTML = 'Done: ' + ulDone.children.length;
+    }
+    
+    if (window.screen.width < 480) {
+      date.innerHTML = currentDate.toLocaleDateString("en-US",newOptions);
+      countNeedToDo.innerHTML = 'Need: ' + ulDo.children.length;
+      countInProgress.innerHTML = 'Progress: '+ ulProgress.children.length;
+      countDone.innerHTML = 'Done: ' + ulDone.children.length;
+    }
   };
 
   this.onDragCancel = function(dragObj, parentClassName) {
@@ -434,7 +523,24 @@ function getCoords(elem) {
   };
 }
 
-countTasks();
+if (window.screen.width > 768) {
+  date.innerHTML = currentDate.toLocaleDateString("en-US",options);
+  countNeedToDo.innerHTML = 'Need-to-do: ' + ulDo.children.length;
+  countInProgress.innerHTML = 'In-progress: '+ ulProgress.children.length;
+  countDone.innerHTML = 'Done: ' + ulDone.children.length;
+}
 
+if (window.screen.width < 768 && window.screen.width > 480) {
+  date.innerHTML = currentDate.toLocaleDateString("en-US",newOptions);
+  countNeedToDo.innerHTML = 'Need: ' + ulDo.children.length;
+  countInProgress.innerHTML = 'Progress: '+ ulProgress.children.length;
+  countDone.innerHTML = 'Done: ' + ulDone.children.length;
+}
 
+if (window.screen.width < 480) {
+  date.innerHTML = currentDate.toLocaleDateString("en-US",newOptions);
+  countNeedToDo.innerHTML = 'Need: ' + ulDo.children.length;
+  countInProgress.innerHTML = 'Progress: '+ ulProgress.children.length;
+  countDone.innerHTML = 'Done: ' + ulDone.children.length;
+}
 

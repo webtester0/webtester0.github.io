@@ -205,4 +205,11 @@
     top: 15px;
   }
 
+  .count-in-progress {
+    width: 20%;;
+  }
+
+  .board-title {
+    width: 20%;
+  }
 }
