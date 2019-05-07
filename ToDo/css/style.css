@@ -125,6 +125,7 @@ ul {
   color: #383838;
   position: relative;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .droppable-progress {

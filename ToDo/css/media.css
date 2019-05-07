@@ -65,7 +65,7 @@
   }
 
   ul {
-    min-height: 240px;
+    height: 240px;
   }
 
   .droppable-progress {
@@ -147,7 +147,7 @@
   }
 
   ul {
-    min-height: 240px;
+    height: 240px;
   }
 
   .droppable-progress {
