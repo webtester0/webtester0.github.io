@@ -209,6 +209,10 @@
     width: 20%;;
   }
 
+  .board-header {
+    font-size: 15px;
+  }
+
   .board-title {
     width: 20%;
   }
