@@ -19,7 +19,6 @@ body {
   display: flex;
   min-height: 50px;
   margin-bottom: 50px;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   color: #0f0a01 ;
