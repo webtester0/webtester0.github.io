@@ -1,0 +1,67 @@
+@import 'MyInfo.part';
+@import '../../../styles/meta';
+
+.container {
+  margin-left: 50px;
+  width: 750px;
+
+  &_me {
+    & img {
+      width: 150px;
+      height: 150px;
+      box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.15);
+      border-radius: 100px;
+    }
+
+    &_info {
+      vertical-align: top;
+      display: inline-block;
+      margin-left: 25px;
+
+      &_title {
+        width: 247px;
+        height: 48px;
+        font-size: 40px;
+        color: #000000;
+        margin-bottom: 10px;
+      }
+
+      &_want {
+        width: 130px;
+        height: 25px;
+        font-size: 15px;
+        color: #000000;
+        display: inline-block;
+        margin-right: 10px;
+
+        & i {
+          width: 19px;
+          margin-bottom: 3px;
+        }
+      }
+
+      &_gift {
+        width: 130px;
+        height: 25px;
+        font-size: 15px;
+        color: #329eff;
+        display: inline-block;
+
+        & i {
+          width: 19px;
+          margin-bottom: 3px;
+        }
+      }
+
+      &_share {
+        margin-top: 25px;
+        display: block;
+        @extend %button_favorites;
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+        border:none;
+      }
+    }
+  }
+}

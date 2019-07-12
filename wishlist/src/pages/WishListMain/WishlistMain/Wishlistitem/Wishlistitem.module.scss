@@ -1,0 +1,25 @@
+@import './Wishlistitem.part';
+@import '../../../../styles/meta';
+
+.item {
+    margin-left: 50px;
+    margin-bottom: 50px;
+    width: 200px;
+    & img {
+          width: 200px;
+          min-height: 188px;
+      }
+    &_name {
+        @include item(16px, 15px);
+    }
+    &_price {
+        @include item(12px, 5px);
+    }
+    &_description {
+        @include item(10px, 5px);
+        color: #b2b2b2;
+    }
+    &_favorites {
+        @extend %button_favorites
+    }
+}

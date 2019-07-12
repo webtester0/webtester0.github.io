@@ -1,0 +1,22 @@
+@import "../font/SFUIDisplay/font.css";
+
+* {
+  box-sizing: border-box;
+}
+.App {
+  width: 800px;
+  height: 800px;
+  margin: 0 auto;
+  border: 1px solid red;
+  font-family: 'SF UI Display';
+  margin-top: 50px;
+}
+
+input {
+  outline: none;
+  padding-left: 25px;
+}
+
+button {
+  outline: none;
+}

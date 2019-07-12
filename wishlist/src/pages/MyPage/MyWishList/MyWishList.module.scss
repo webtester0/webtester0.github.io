@@ -1,0 +1,9 @@
+@import 'MyWishList.part';
+@import '../../../styles/meta';
+
+.wishlist {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 436px;
+}
