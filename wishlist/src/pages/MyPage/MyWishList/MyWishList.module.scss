@@ -2,8 +2,7 @@
 @import '../../../styles/meta';
 
 .wishlist {
+  @extend %container_scroll;
   margin-top: 50px;
-  display: flex;
-  flex-wrap: wrap;
   height: 436px;
 }

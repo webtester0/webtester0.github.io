@@ -8,7 +8,7 @@ class WishList extends React.Component {
     render() {
         return (
             <div>
-                < HeaderMain />
+                < HeaderMain myFio={'Alex Smith'} />
                 < SearchMain placeholder="Введите название товара"/>
                 < WishlistMain/>
             </div>

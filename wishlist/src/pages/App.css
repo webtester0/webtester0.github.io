@@ -5,7 +5,7 @@
 }
 .App {
   width: 800px;
-  height: 800px;
+  height: 100%;
   margin: 0 auto;
   border: 1px solid red;
   font-family: 'SF UI Display';
@@ -20,3 +20,13 @@ input {
 button {
   outline: none;
 }
+
+a {
+  text-decoration: none;
+  color: #329eff;
+}
+
+a:link,a:visited,a:hover,a:active {
+  color: #329eff;
+}
+

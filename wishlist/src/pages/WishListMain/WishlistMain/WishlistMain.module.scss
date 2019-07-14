@@ -1,24 +1,28 @@
+@import '../../../styles/meta';
+.box {
+  margin-top: 50px;
+}
+
 .container {
-    margin-top: 50px;
-    &_title {
-        width: 206px;
-        height: 39px;
-        font-size: 30px;
-        color: #000000;
-        display: block;
-        margin: 0 auto 25px auto;
-        & i {
-            width: 25px;
-            height: 25px;
-            margin-bottom: 5px;
-        }
-    }
+    @extend %container_scroll;
     &_wishlist {
-        margin-top: 50px;
         display: flex;
         flex-wrap: wrap;
         height: 436px;
     }
 }
 
+.title {
+  width: 206px;
+  height: 39px;
+  font-size: 30px;
+  color: #000000;
+  display: block;
+  margin: 0 auto 25px auto;
+  & i {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 5px;
+  }
+}
 

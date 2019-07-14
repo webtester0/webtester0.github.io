@@ -1,9 +1,8 @@
 import React from 'react'
-import propTypes from 'prop-types'
 import cls from './HeaderMyPage.module.scss'
 import avatar from '../../../img/me.png'
+import {Link} from 'react-router-dom'
 
-console.log(avatar);
 
 class HeaderMyPage extends React.Component {
 
@@ -12,7 +11,9 @@ class HeaderMyPage extends React.Component {
         return (
             <div className={cls.header}>
                 <div className={cls.header_back}>
-                    <div className={cls.header_back_title}>Вернуться к списку</div>
+                    <div className={cls.header_back_title}>
+                        <Link to="/wishlist" className="link">Вернуться к списку</Link>
+                    </div>
                 </div>
                 <div className={cls.header_friends}>
                     <div className={cls.nickname}>Мои друзья</div>

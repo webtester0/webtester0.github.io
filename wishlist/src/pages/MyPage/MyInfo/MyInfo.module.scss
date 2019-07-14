@@ -33,7 +33,9 @@
         color: #000000;
         display: inline-block;
         margin-right: 10px;
-
+        &_link:active,&_link:visited {
+          color: #000000;
+        }
         & i {
           width: 19px;
           margin-bottom: 3px;

@@ -17,4 +17,16 @@
   background-image: linear-gradient(75deg, #e0fffd, #e7e1ff);
   font-size: 14px;
   text-align: center;
+  &:hover {
+    color: #9555af;
+    border-color: currentColor;
+    background-color: #e0fffd;
+  }
+}
+
+%container_scroll {
+  overflow-y: auto;
+  &::-webkit-scrollbar { width: 0; }
+  &{ -ms-overflow-style: none; }
+  &{ overflow: -moz-scrollbars-none; }
 }

@@ -1,11 +1,14 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import cls from './HeaderMain.module.scss'
-import avatar from '../../../img/me.png'
-
-console.log(avatar);
+import {Link} from "react-router-dom";
+//как прокинуть через props?
+import avatar from '../../../img/me.png';
 
 class HeaderMain extends React.Component {
+    static propTypes = {
+        myFio: propTypes.string.isRequired
+    };
 
     render() {
 
@@ -13,7 +16,11 @@ class HeaderMain extends React.Component {
             <div className={cls.header}>
                 <div className={cls.header_me}>
                     <img src={avatar} alt="my_avatar"/>
-                    <div className={cls.nickname}>Alex Smith</div>
+                    <div className={cls.nickname}>
+                        <Link to="/me">
+                            {this.props.myFio}
+                        </Link>
+                    </div>
                 </div>
                 <div className={cls.header_friends}>
                     <div className={cls.nickname}>Мои друзья</div>

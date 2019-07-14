@@ -1,10 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import cls from './MyWishList.module.scss'
-import avatar from '../../../img/me.png'
-import Wishlistitem from "./Wishlistitem";
-
-console.log(avatar);
+import PendingWishlist from "./PendingWishList";
 
 class MyWishList extends React.Component {
 
@@ -12,9 +9,7 @@ class MyWishList extends React.Component {
 
         return (
             <div className={cls.wishlist}>
-                < Wishlistitem />
-                < Wishlistitem />
-                < Wishlistitem />
+                <PendingWishlist />
             </div>
         )
     }

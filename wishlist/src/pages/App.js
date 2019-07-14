@@ -1,26 +1,22 @@
 import React from 'react';
 import './App.css';
-
-import SearchMain from "./WishListMain/SearchMain";
-import WishlistMain from "./WishListMain/WishlistMain";
-import HeaderMain from "./WishListMain/HeaderMain";
 import WishList from "./WishListMain/WishList";
-import HeaderMyPage from "./MyPage/HeaderMyPage";
-import MyInfo from "./MyPage/MyInfo";
-import MyWishList from "./MyPage/MyWishList";
 import MyPage from "./MyPage/MyPage";
-
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 
 
 class App extends React.Component {
-  render() {
-      return (
-          <div className="App">
-              {/*< MyPage />*/}
-              <WishList />
-          </div>
-      );
-  }
+    render() {
+        return (
+            <BrowserRouter>
+                <div className="App">
+                    <Route exact path="/me" component={MyPage}/>
+                    <Route path="/wishlist" component={WishList}/>
+                    <Redirect to="/me"/>
+                </div>
+            </BrowserRouter>
+        );
+    }
 }
 
 export default App;
