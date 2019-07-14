@@ -67,7 +67,7 @@ class PendingWishlist extends React.Component {
         this.setState({isLoading: true});
         setTimeout(() => {
             this.setState({isLoading: false})
-        }, 0)
+        }, 3000)
     }
 
     render() {
