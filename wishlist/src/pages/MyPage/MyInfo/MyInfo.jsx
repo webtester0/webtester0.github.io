@@ -26,7 +26,9 @@ class MyInfo extends React.Component {
                             </Link>
                         </div>
                         <div className={cls.container_me_info_gift}>
-                            Хочу подарить <i className="em em-smiley_cat"></i>
+                            <Link to='/me/giftlist' className={cls.container_me_info_gift_link}>
+                                Хочу подарить <i className="em em-smiley_cat"></i>
+                            </Link>
                         </div>
                         <button className={cls.container_me_info_share}>Поделиться</button>
                     </div>

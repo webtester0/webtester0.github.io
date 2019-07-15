@@ -7,7 +7,7 @@ class LoadingWishList extends React.Component {
     render() {
         return (
             <div className={cls.pending}>
-                LOADING
+                LOADING MY_WISH_LIST
             </div>
         )
     }

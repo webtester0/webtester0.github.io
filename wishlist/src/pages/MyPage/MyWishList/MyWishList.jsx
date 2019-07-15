@@ -1,7 +1,8 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import cls from './MyWishList.module.scss'
-import PendingWishlist from "./PendingWishList";
+import PendingWishlist from "./PendingWishList"
+
 
 class MyWishList extends React.Component {
 
@@ -9,7 +10,7 @@ class MyWishList extends React.Component {
 
         return (
             <div className={cls.wishlist}>
-                <PendingWishlist />
+                < PendingWishlist/>
             </div>
         )
     }

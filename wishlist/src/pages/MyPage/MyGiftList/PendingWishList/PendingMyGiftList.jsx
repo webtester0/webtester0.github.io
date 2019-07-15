@@ -1,7 +1,7 @@
 import React from 'react'
-import LoadingWishList from "../LoadingWishList";
-import Wishlistitem from "../Wishlistitem";
-import cls from './PendingWishList.module.scss'
+import LoadingMyGiftList from "../LoadingMyGiftList";
+import Wishlistitem from "../MyGiftListitem";
+import cls from './PendingMyGiftList.module.scss'
 
 
 const items = [
@@ -44,7 +44,7 @@ const items = [
     }
 ];
 
-class PendingWishlist extends React.Component {
+class PendingMyGiftList extends React.Component {
     //можно ли так объявлять событие, до state ?
     handlerDelItem = (id) => {
         let wishItems = this.state.wishItems.slice();
@@ -72,7 +72,7 @@ class PendingWishlist extends React.Component {
         let wishlist;
 
         if (isLoading) {
-            wishlist = <div className={cls.load}><LoadingWishList/></div>
+            wishlist = <div className={cls.load}><LoadingMyGiftList/></div>
         } else {
             wishlist = this.state.wishItems
         }
@@ -84,4 +84,4 @@ class PendingWishlist extends React.Component {
     }
 }
 
-export default PendingWishlist
+export default PendingMyGiftList

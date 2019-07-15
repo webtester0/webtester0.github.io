@@ -24,6 +24,15 @@
   }
 }
 
+%button_know_wishlist {
+  width: 150px;
+  height: 30px;
+  border-radius: 21px;
+  background-image: linear-gradient(79deg, #7dc4ff, #6700ff);
+  color: #ffffff;
+  font-size: 12px;
+}
+
 %container_scroll {
   overflow-y: auto;
   &::-webkit-scrollbar { width: 0; }
