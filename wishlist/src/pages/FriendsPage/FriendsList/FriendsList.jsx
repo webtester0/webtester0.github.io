@@ -9,8 +9,10 @@ class FriendsList extends React.Component {
     render() {
 
         return (
-            <div className={cls.wishlist}>
-                < PendingFriendsList/>
+            <div>
+                <div className={cls.wishlist}>
+                    < PendingFriendsList/>
+                </div>
             </div>
         )
     }

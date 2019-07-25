@@ -1,8 +1,7 @@
 import React from 'react';
-
-import FriendsSearch from "./FriendsSearch";
-import FriendsList from "./FriendsList";
 import FriendsHeader from "./FriendsHeader";
+import FriendsListNew from "../../containers/FriendListNew";
+import FriendsSearch from '../../containers/FriendsSearch'
 
 
 class FriendsPage extends React.Component {
@@ -11,7 +10,8 @@ class FriendsPage extends React.Component {
             <div>
                 < FriendsHeader myFio="Alex Smith" />
                 < FriendsSearch placeholder="Начните вводить имя друга" />
-                < FriendsList />
+                {/*< FriendsList />*/}
+                < FriendsListNew/>
             </div>
         );
     }

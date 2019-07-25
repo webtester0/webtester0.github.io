@@ -18,11 +18,19 @@
   font-size: 30px;
   color: #000000;
   display: block;
-  margin: 0 auto 25px auto;
+  margin: 0 auto 20px auto;
   & i {
     width: 25px;
     height: 25px;
     margin-bottom: 5px;
   }
+}
+
+.load {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  color: #329eff
 }
 

@@ -1,39 +1,46 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import cls from './WishlistMain.module.scss'
 import Wishlistitem from "./Wishlistitem";
 
-let wishListItems = [];
-const axios = require('axios');
-const searchParam = 'batman';
-const getImg = async(films) => {
-    try {
-        await axios.get(`http://www.omdbapi.com/?apikey=6ca773de&s=${films}`)
-            .then (res => {
-                console.log(res.data);
-                return res.data
-            })
-            .then(res => {
-
-            })
-    } catch (e) {
-        console.log(e);
-    }
-};
-
 
 class WishlistMain extends React.Component {
+
+    static propTypes = {
+        setBooks: PropTypes.func.isRequired,
+        items: PropTypes.arrayOf(PropTypes.object),
+        isLoading: PropTypes.bool.isRequired
+    };
+
+    renderTemplate = () => {
+        const {items, isLoading, setBooks, error, addToWish} = this.props;
+
+        if (isLoading) {
+            return <h1 className={cls.load}>LOADING BOOKS ...</h1>
+        }
+
+        if (error) {
+            return <h1 className={cls.load}>Во время загрузки произошла ошибка</h1>
+        }
+
+        if (!items) {
+            setBooks();
+            return <h1 className={cls.load}>Данных нет</h1>
+        } else {
+            return items.map(item => < Wishlistitem
+                key={item.id} {...item} addToWish={addToWish}/>)
+        }
+
+    };
+
     render() {
         return (
             <div className={cls.box}>
+
                 <div className={cls.title}>Популярное <i className="em em-star-struck"></i></div>
                 <div className={cls.container}>
                     <div className={cls.container_wishlist}>
-                        <Wishlistitem/>
-                        <Wishlistitem/>
-                        <Wishlistitem/>
-                        <Wishlistitem/>
-                        <Wishlistitem/>
+                        {this.renderTemplate()}
                     </div>
                 </div>
             </div>
@@ -42,3 +49,4 @@ class WishlistMain extends React.Component {
 }
 
 export default WishlistMain;
+

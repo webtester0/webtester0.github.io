@@ -5,15 +5,12 @@ import cls from './Frienditem.module.scss'
 import image from "../../../../img/friends.png";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGift} from "@fortawesome/free-solid-svg-icons/faGift";
+import {Link} from "react-router-dom";
 
 class Frienditem extends React.Component {
     static propTypes = {
         name: propTypes.string.isRequired,
 
-    };
-
-    onClick = () => {
-        this.props.onClick(this.props.key)
     };
 
     render() {
@@ -22,8 +19,10 @@ class Frienditem extends React.Component {
                 <img src={image} alt="wishlist_item"/>
                 <div className={cls.container_item}>
                     <div className={cls.container_item_name}>{this.props.name}</div>
-                    <button className={`${cls.container_item_favorites}`} onClick={this.onClick}>
-                        Узнать что подарить
+                    <button className={`${cls.container_item_favorites}`} >
+                        <Link to="/friendpage">
+                            Узнать что подарить
+                        </Link>
                     </button>
                 </div>
             </div>

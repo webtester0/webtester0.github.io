@@ -11,6 +11,7 @@ const items = [
         price: '120 000 ₽',
         description: 'Ноутбук Apple MacBook Pro 13.3" Core i5 2,4 ГГц, 8 ГБ, 256\n' +
             '                    ГБ SSD, Iris Plus 655, Touch Bar (серый космос)',
+        fio: 'User'
 
     },
     {
@@ -19,6 +20,7 @@ const items = [
         price: '120 000 ₽',
         description: 'Ноутбук Apple MacBook Pro 13.3" Core i5 2,4 ГГц, 8 ГБ, 256\n' +
             '                    ГБ SSD, Iris Plus 655, Touch Bar (серый космос)',
+        fio: 'User'
 
     }, {
         id: 3,
@@ -26,6 +28,7 @@ const items = [
         price: '120 000 ₽',
         description: 'Ноутбук Apple MacBook Pro 13.3" Core i5 2,4 ГГц, 8 ГБ, 256\n' +
             '                    ГБ SSD, Iris Plus 655, Touch Bar (серый космос)',
+        fio: 'User'
 
     }, {
         id: 4,
@@ -33,6 +36,7 @@ const items = [
         price: '120 000 ₽',
         description: 'Ноутбук Apple MacBook Pro 13.3" Core i5 2,4 ГГц, 8 ГБ, 256\n' +
             '                    ГБ SSD, Iris Plus 655, Touch Bar (серый космос)',
+        fio: 'User'
 
     }, {
         id: 5,
@@ -40,6 +44,7 @@ const items = [
         price: '120 000 ₽',
         description: 'Ноутбук Apple MacBook Pro 13.3" Core i5 2,4 ГГц, 8 ГБ, 256\n' +
             '                    ГБ SSD, Iris Plus 655, Touch Bar (серый космос)',
+        fio: 'User'
 
     }
 ];
@@ -53,18 +58,14 @@ class PendingMyGiftList extends React.Component {
     };
 
     state = {
-        isLoading: false,
-        wishItems: items.map(item => {
-           return < Wishlistitem key={item.id} name={item.name} price={item.price} description={item.description}
-                           onClick={this.handlerDelItem}/>
-        })
+        isLoading: false
     };
 
     componentDidMount() {
         this.setState({isLoading: true});
         setTimeout(() => {
             this.setState({isLoading: false})
-        }, 3000)
+        }, 1000)
     }
 
     render() {
@@ -74,7 +75,10 @@ class PendingMyGiftList extends React.Component {
         if (isLoading) {
             wishlist = <div className={cls.load}><LoadingMyGiftList/></div>
         } else {
-            wishlist = this.state.wishItems
+            wishlist = items.map(item => {
+                return < Wishlistitem key={item.id} name={item.name} price={item.price} description={item.description}
+                                      fio={item.fio} onClick={this.handlerDelItem}/>
+            })
         }
         return (
             <div className={cls.container}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import HeaderMain from "./HeaderMain";
-import SearchMain from "./SearchMain";
-import WishlistMain from "./WishlistMain";
+import SearchMain from "../../containers/SerachMain";
+import WishlistMain from "../../containers/WishlistMain";
 
 
 class WishList extends React.Component {

@@ -29,18 +29,11 @@ const items = [
 ];
 
 class PendingFriendsList extends React.Component {
-    //можно ли так объявлять событие, до state ?
-    handlerDelItem = (id) => {
-        let wishItems = this.state.wishItems.slice();
-        wishItems.splice(id, 1);
-        this.setState({wishItems});
-    };
-
     state = {
         isLoading: false,
         wishItems: items.map(item => {
-           return < Frienditem key={item.id} name={item.name} price={item.price} description={item.description}
-                               onClick={this.handlerDelItem}/>
+            return < Frienditem key={item.id} name={item.name} price={item.price} description={item.description}
+            />
         })
     };
 

@@ -3,15 +3,14 @@ import propTypes from 'prop-types'
 import cls from './MyGiftListitem.module.scss'
 //все через props
 import image from "../../../../img/macpro.png";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGift} from "@fortawesome/free-solid-svg-icons/faGift";
+import avatar from "../../../../img/friends.png";
 
 class Wishlistitem extends React.Component {
     static propTypes = {
         name: propTypes.string.isRequired,
         price: propTypes.string.isRequired,
         description: propTypes.string.isRequired,
-    }
+    };
     onClick = () => {
 
         this.props.onClick(this.props.key)
@@ -25,10 +24,10 @@ class Wishlistitem extends React.Component {
                 <div className={cls.item_price}>{this.props.price}</div>
                 <div className={cls.item_description}>{this.props.description}</div>
                 <button className={`${cls.item_favorites}`} onClick={this.onClick}>
-                    Удалить
+                    Не подарю <i className="em em-disappointed_relieved"></i>
                 </button>
-                <div className={cls.item_icon} data-tooltip="Кто-то хочет это тебе подарить">
-                    <FontAwesomeIcon icon={faGift} className={cls.item_icon_gift} />
+                <div className={cls.item_user} data-tooltip={`Этот подарок для пользователя ${this.props.fio}`}>
+                    <img src={avatar} alt="user_avatar"/>
                 </div>
             </div>
         )

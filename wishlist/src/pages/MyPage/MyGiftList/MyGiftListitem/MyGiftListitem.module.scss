@@ -27,23 +27,27 @@
   &_favorites {
     @extend %button_delete;
     border: none;
+    & i {
+      width: 18px;
+      height: 18px;
+      margin-left: 5px;
+    }
   }
 
-  &_icon {
+  &_user {
     display: inline-block;
     vertical-align: middle;
     margin-left: 10px;
     width: 40px;
     height: 40px;
     border-radius: 20px;
-    background-image: linear-gradient(225deg, #ff0045, #ff9890);
     position: relative;
-    &_gift {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      color: white;
-      transform: translate(-50%, -50%);
+    & img {
+      width: 40px;
+      min-height: 0;
+      height: 40px;
+      box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.15);
+      border-radius: 20px;
     }
   }
 }
@@ -53,7 +57,7 @@
   opacity: 0;
   transition: 1s;
   pointer-events: none;
-  width: 110px;
+  width: 148px;
   height: 42px;
   border-radius: 5px;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
@@ -61,8 +65,9 @@
   font-size: 5px;
   position: absolute;
   top: -140%;
-  left: -80%;
+  left: -170%;
   padding: 5px;
+  text-align: center;
 }
 
 [data-tooltip]:hover::before {

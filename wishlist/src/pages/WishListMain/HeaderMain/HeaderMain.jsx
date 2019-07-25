@@ -2,7 +2,6 @@ import React from 'react'
 import propTypes from 'prop-types'
 import cls from './HeaderMain.module.scss'
 import {Link} from "react-router-dom";
-//как прокинуть через props?
 import avatar from '../../../img/me.png';
 
 class HeaderMain extends React.Component {

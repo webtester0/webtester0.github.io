@@ -1,8 +1,10 @@
 import React from 'react';
 import HeaderMyPage from "./HeaderMyPage";
 import MyInfo from "./MyInfo";
-import MyWishList from "./MyWishList";
-import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+//старый WishList
+// import MyWishList from "./MyWishList";
+import MyWishListNew from './MyWishListNew'
+import {Route, Switch} from 'react-router-dom';
 import MyGiftList from "./MyGiftList";
 
 class MyPage extends React.Component {
@@ -13,7 +15,7 @@ class MyPage extends React.Component {
                 < MyInfo myFio={'Alex Smith'}/>
                 {/*возвращает один из двух роутев в зависимости от full pathname*/}
                 <Switch>
-                    < Route exact path="/me" component={MyWishList} />
+                    < Route exact path="/me" component={MyWishListNew} />
                     < Route path="/me/:giftlist" component={MyGiftList} />
                 </Switch>
             </div>

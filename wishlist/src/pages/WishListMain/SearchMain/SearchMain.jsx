@@ -6,14 +6,15 @@ class SearchMain extends React.Component {
     static propTypes = {
         placeholder: propTypes.string.isRequired
     };
+
     render() {
-        let {placeholder} = this.props;
-      return (
-          <div className={cls.container}>
-              <div className={cls.container_title}>Wishlist <i className="em em-heart_eyes_cat"></i></div>
-              <input type="text" placeholder={placeholder} className={cls.container_input}/>
-          </div>
-      )
+        const {placeholder, searchQuery, setQuery} = this.props;
+        return (
+            <div className={cls.container}>
+                <div className={cls.container_title}>Wishlist <i className="em em-heart_eyes_cat"></i></div>
+                <input type="text"  value={searchQuery} placeholder={placeholder} className={cls.container_input} onChange={e => setQuery(e.target.value)}/>
+            </div>
+        )
     }
 }
 

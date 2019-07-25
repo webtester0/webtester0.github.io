@@ -434,7 +434,7 @@ MagnificPopup.prototype = {
 		// clean up DOM elements that aren't removed
 		mfp.wrap.attr('class', 'mfp-wrap').removeAttr('style');
 		mfp.bgOverlay.attr('class', 'mfp-bg');
-		mfp.container.attr('class', 'mfp-container');
+		mfp.container.attr('class', 'mfp-containers');
 
 		// remove close button from target element
 		if(mfp.st.showCloseBtn &&
@@ -525,7 +525,7 @@ MagnificPopup.prototype = {
 		_mfpTrigger(CHANGE_EVENT, item);
 		_prevContentType = item.type;
 
-		// Append container back after its content changed
+		// Append containers back after its content changed
 		mfp.container.prepend(mfp.contentContainer);
 
 		_mfpTrigger('AfterChange');
