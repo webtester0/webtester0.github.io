@@ -1,5 +1,4 @@
 import {connect} from 'react-redux'
-// import FriendsSearch from "../pages/FriendsPage/FriendsSearch";
 import Search from '../components/Search'
 import {setQuery} from "../actions/friendsSearch";
 

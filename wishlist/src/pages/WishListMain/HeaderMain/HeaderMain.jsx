@@ -6,26 +6,39 @@ import avatar from '../../../img/me.png';
 
 class HeaderMain extends React.Component {
     static propTypes = {
-        myFio: propTypes.string.isRequired
+        fio: propTypes.string,
+        myPhoto: propTypes.string,
+        friendOne: propTypes.string,
+        friendTwo: propTypes.string,
+        friendThree: propTypes.string,
     };
 
     render() {
 
+        const {fio, myPhoto, friendOne, friendTwo, friendThree,getInfo,getFriendsInfo} = this.props;
+
+        getInfo();
+        getFriendsInfo();
+
         return (
             <div className={cls.header}>
                 <div className={cls.header_me}>
-                    <img src={avatar} alt="my_avatar"/>
+                    <img src={myPhoto} alt="my_avatar"/>
                     <div className={cls.nickname}>
                         <Link to="/me">
-                            {this.props.myFio}
+                            {fio}
                         </Link>
                     </div>
                 </div>
                 <div className={cls.header_friends}>
-                    <div className={cls.nickname}>Мои друзья</div>
-                    <img className={`${cls.first_img} ${cls.header_friends_avatar}`} src={avatar} alt="my_avatar"/>
-                    <img className={`${cls.second_img} ${cls.header_friends_avatar}`} src={avatar} alt="my_avatar"/>
-                    <img className={`${cls.third_img} ${cls.header_friends_avatar}`} src={avatar} alt="my_avatar"/>
+                    <div className={cls.nickname}>
+                        <Link to="/friends">
+                            Мои друзья
+                        </Link>
+                    </div>
+                    <img className={`${cls.first_img} ${cls.header_friends_avatar}`} src={friendOne} alt="avatar"/>
+                    <img className={`${cls.second_img} ${cls.header_friends_avatar}`} src={friendTwo} alt="avatar"/>
+                    <img className={`${cls.third_img} ${cls.header_friends_avatar}`} src={friendThree} alt="avatar"/>
                 </div>
             </div>
         )

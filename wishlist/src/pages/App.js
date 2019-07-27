@@ -12,12 +12,11 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Switch>
-                    <Route path="/me" component={MyPage}/>
                     <Route path="/wishlistmain" component={WishList}/>
+                    <Route path="/me" component={MyPage}/>
                     <Route path="/friends" component={FriendsPage}/>
                     <Route path="/friendpage" component={FriendPage}/>
-                    <Redirect to="/me"/>
-                    {/*<Redirect to="/friendpage"/>*/}
+                    <Redirect to="/wishlistmain"/>
                 </Switch>
             </div>
         );

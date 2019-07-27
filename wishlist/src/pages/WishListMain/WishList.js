@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderMain from "./HeaderMain";
+import HeaderMain from "../../containers/HeaderMain";
 import SearchMain from "../../containers/SerachMain";
 import WishlistMain from "../../containers/WishlistMain";
 
@@ -9,7 +9,7 @@ class WishList extends React.Component {
         return (
             <div>
                 < HeaderMain myFio={'Alex Smith'} />
-                < SearchMain placeholder="Введите название товара"/>
+                < SearchMain placeholder="Введите название товара" name="main" emoji="em em-heart_eyes_cat" title="Wishlist"/>
                 < WishlistMain/>
             </div>
         );

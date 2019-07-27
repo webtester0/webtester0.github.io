@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import {bindActionCreators} from "redux"
 import * as searchActions from '../actions/search'
-import SearchMain from '../pages/WishListMain/SearchMain'
+import SearchMain from '../components/Search'
 
 
 

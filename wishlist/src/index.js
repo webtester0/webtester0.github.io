@@ -15,16 +15,18 @@ connect.send("VKWebAppGetAuthToken", {"app_id": 7065930, "scope": "friends,photo
     .then(data => {
         window.access_token = data.data.access_token;
     })
+    .then(() => {
+        const store = createStore();
+
+        ReactDOM.render(
+            <BrowserRouter>
+                <Provider store={store}>
+                    < App/>
+                </Provider>
+            </BrowserRouter>
+            , document.getElementById('root'));
+        serviceWorker.unregister();
+    })
     .catch(error => console.log(error));
 
-const store = createStore();
 
-
-ReactDOM.render(
-    <BrowserRouter>
-        <Provider store={store}>
-            < App/>
-        </Provider>
-    </BrowserRouter>
-    , document.getElementById('root'));
-serviceWorker.unregister();
