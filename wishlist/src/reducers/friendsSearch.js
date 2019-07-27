@@ -1,5 +1,7 @@
 const initialState = {
-    searchQuery: ''
+    searchQuery: '',
+    items: null,
+    error: ''
 };
 
 const friendsSearch = (state = initialState, action) => {
@@ -8,6 +10,16 @@ const friendsSearch = (state = initialState, action) => {
             return {
                 ...state,
                 searchQuery: action.payload
+            };
+        case 'SUCCESS_SEARCH':
+            return {
+                ...state,
+                items: action.payload
+            };
+        case 'FAILED_SEARCH':
+            return {
+                ...state,
+                error: action.payload.data
             };
         default:
             return state;

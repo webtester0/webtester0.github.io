@@ -7,6 +7,10 @@ class SearchMain extends React.Component {
         placeholder: propTypes.string.isRequired
     };
 
+    handleronChange = (e) => {
+        this.props.setQuery(e.target.value)
+    };
+
     render() {
         const {placeholder, searchQuery, setQuery} = this.props;
         return (

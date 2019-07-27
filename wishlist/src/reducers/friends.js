@@ -1,5 +1,5 @@
 const initialState = {
-    friends: [],
+    friends: null,
     isLoading: false,
     error: ''
 };
