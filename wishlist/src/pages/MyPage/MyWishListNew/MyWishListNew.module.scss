@@ -3,6 +3,7 @@
 .container {
   margin-top: 50px;
   @extend %container_scroll;
+
   &_wishlist {
     display: flex;
     flex-wrap: wrap;
@@ -17,6 +18,7 @@
   color: #000000;
   display: block;
   margin: 0 auto 20px auto;
+
   & i {
     width: 25px;
     height: 25px;
@@ -28,6 +30,6 @@
   position: absolute;
   top: 40%;
   left: 50%;
-  transform: translate(-50%,-40%);
+  transform: translate(-50%, -40%);
   color: cornflowerblue;
 }

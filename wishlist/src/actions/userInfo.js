@@ -28,7 +28,7 @@ export function getInfo() {
 export function getFriendsInfo() {
     return dispatch => {
         dispatch({
-            type: 'GET_FRIENDS'
+            type: 'GET_FRIENDS_INFO'
         });
         connect.send("VKWebAppCallAPIMethod", {
             "method": "friends.get",
@@ -42,11 +42,11 @@ export function getFriendsInfo() {
         })
             .then(res => res)
             .then(res => dispatch({
-                type: 'FRIENDS_SUCCESS',
+                type: 'FRIENDS_INFO_SUCCESS',
                 payload: res.data.response.items
             }))
             .catch(error => dispatch({
-                type: 'FRIENDS_FAILED',
+                type: 'FRIENDS_INFO_FAILED',
                 payload: error
             }));
     }

@@ -1,24 +1,29 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import cls from './MyInfo.module.scss'
-import avatar from '../../../img/me.png'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-console.log(avatar);
 
 class MyInfo extends React.Component {
-    static propTypes = {
-        myFio: propTypes.string.isRequired
-    };
-    render() {
 
+    static propTypes = {
+        fio: propTypes.string.isRequired
+    };
+
+    handlerOnClick = () => {
+
+    };
+
+    render() {
+        const {fio, myPhoto} = this.props;
         return (
             <div className={cls.container}>
                 <div className={cls.container_me}>
-                    <img src={avatar} alt="my_avatar"/>
+                    <img src={myPhoto} alt="my_avatar"/>
                     <div className={cls.container_me_info}>
                         <div className={cls.container_me_info_title}>
-                            {this.props.myFio}
+                            {fio}
                         </div>
                         <div className={cls.container_me_info_want}>
                             <Link to='/me' className={cls.container_me_info_want_link}>
@@ -26,7 +31,7 @@ class MyInfo extends React.Component {
                             </Link>
                         </div>
                         <div className={cls.container_me_info_gift}>
-                            <Link to='/me/giftlist' className={cls.container_me_info_gift_link}>
+                            <Link to='/me/giftlist' className={`${cls.container_me_info_gift_link}`}>
                                 Хочу подарить <i className="em em-smiley_cat"></i>
                             </Link>
                         </div>
@@ -38,4 +43,9 @@ class MyInfo extends React.Component {
     }
 }
 
-export default MyInfo;
+const mapStateToProps = ({userInfo}) => ({
+    fio: userInfo.fio,
+    myPhoto: userInfo.myPhoto,
+});
+
+export default connect(mapStateToProps)(MyInfo);

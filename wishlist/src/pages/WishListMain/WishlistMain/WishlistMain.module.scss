@@ -1,12 +1,13 @@
 @import '../../../styles/meta';
 
 .container {
-    @extend %container_scroll;
-    &_wishlist {
-        display: flex;
-        flex-wrap: wrap;
-        height: 436px;
-    }
+  @extend %container_scroll;
+
+  &_wishlist {
+    display: flex;
+    flex-wrap: wrap;
+    height: 436px;
+  }
 }
 
 .title {
@@ -16,6 +17,7 @@
   color: #000000;
   display: block;
   margin: 0 auto 30px auto;
+
   & i {
     width: 25px;
     height: 25px;
@@ -27,7 +29,7 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   color: #329eff
 }
 

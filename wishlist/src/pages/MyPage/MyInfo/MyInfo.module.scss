@@ -1,4 +1,3 @@
-@import 'MyInfo.part';
 @import '../../../styles/meta';
 
 .container {
@@ -19,7 +18,6 @@
       margin-left: 25px;
 
       &_title {
-        width: 247px;
         height: 48px;
         font-size: 40px;
         color: #000000;
@@ -30,12 +28,13 @@
         width: 130px;
         height: 25px;
         font-size: 15px;
-        color: #000000;
         display: inline-block;
         margin-right: 10px;
-        &_link:active,&_link:visited {
+
+        a &_link{
           color: #000000;
         }
+
         & i {
           width: 19px;
           margin-bottom: 3px;
@@ -46,8 +45,11 @@
         width: 130px;
         height: 25px;
         font-size: 15px;
-        color: #329eff;
         display: inline-block;
+
+        a &_link{
+          color: #000000;
+        }
 
         & i {
           width: 19px;
@@ -62,7 +64,7 @@
         width: 100px;
         height: 30px;
         font-size: 12px;
-        border:none;
+        border: none;
       }
     }
   }

@@ -2,15 +2,14 @@ import React from 'react'
 import propTypes from 'prop-types'
 import cls from './HeaderMain.module.scss'
 import {Link} from "react-router-dom";
-import avatar from '../../../img/me.png';
 
 class HeaderMain extends React.Component {
     static propTypes = {
-        fio: propTypes.string,
-        myPhoto: propTypes.string,
-        friendOne: propTypes.string,
-        friendTwo: propTypes.string,
-        friendThree: propTypes.string,
+        fio: propTypes.string.isRequired,
+        myPhoto: propTypes.string.isRequired,
+        friendOne: propTypes.string.isRequired,
+        friendTwo: propTypes.string.isRequired,
+        friendThree: propTypes.string.isRequired,
     };
 
     render() {
@@ -24,7 +23,7 @@ class HeaderMain extends React.Component {
             <div className={cls.header}>
                 <div className={cls.header_me}>
                     <img src={myPhoto} alt="my_avatar"/>
-                    <div className={cls.nickname}>
+                    <div className={`${cls.nickname} ${cls.fio}`}>
                         <Link to="/me">
                             {fio}
                         </Link>
