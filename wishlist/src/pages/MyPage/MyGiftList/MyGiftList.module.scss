@@ -1,8 +1,0 @@
-@import 'MyGiftList.part';
-@import '../../../styles/meta';
-
-.wishlist {
-  @extend %container_scroll;
-  margin-top: 50px;
-  height: 436px;
-}
