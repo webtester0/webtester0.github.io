@@ -1,0 +1,14 @@
+@import '../../styles/meta';
+
+.share {
+  @extend %button_share
+}
+
+.list {
+  @extend %button_list;
+  border: none;
+}
+
+.main {
+  @extend %button_favorites
+}

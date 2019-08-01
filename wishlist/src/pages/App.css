@@ -10,6 +10,15 @@
   font-family: 'SF UI Display';
 }
 
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #329eff;
+  font-size: 24px;
+}
+
 input {
   outline: none;
   padding-left: 25px;

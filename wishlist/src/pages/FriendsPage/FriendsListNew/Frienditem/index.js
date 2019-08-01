@@ -1,3 +1,3 @@
-import Frienditem from './Frienditem'
+import Frienditem from './Frienditem';
 
-export default Frienditem
+export default Frienditem;

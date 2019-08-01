@@ -9,7 +9,7 @@
   background-image: linear-gradient(79deg, #7dc4ff, #6700ff);
 }
 
-%button_delete {
+%button_list {
   margin-top: 15px;
   width: 150px;
   height: 40px;
@@ -24,13 +24,19 @@
   }
 }
 
-%button_know_wishlist {
-  width: 150px;
-  height: 30px;
-  border-radius: 21px;
-  background-image: linear-gradient(79deg, #7dc4ff, #6700ff);
+
+
+%button_share {
+  display: block;
+  margin-top: 25px;
+  font-size: 14px;
+  text-align: center;
   color: #ffffff;
-  font-size: 12px;
+  width: 100px;
+  height: 30px;
+  border-radius: 12px;
+  background-image: linear-gradient(79deg, #7dc4ff, #6700ff);
+  border: none;
 }
 
 %container_scroll {

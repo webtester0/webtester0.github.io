@@ -16,7 +16,7 @@
       margin-bottom: 15px;
     }
     &_favorites {
-      @extend %button_know_wishlist;
+      @extend %button_favorites;
       border: none;
       display: block;
       & a {

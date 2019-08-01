@@ -1,3 +1,3 @@
-import FriendsListNew from "./FriendsListNew";
+import FriendsListNew from './FriendsListNew';
 
-export default FriendsListNew
+export default FriendsListNew;
